@@ -9,6 +9,38 @@
         height: 115px;
     }
 
+    /* Thêm cột trái để làm đối trọng đẩy logo vào giữa */
+    .header-left {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Cột giữa chứa Logo */
+    .logo {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo img {
+        height: 70px;
+    }
+
+    /* Cột phải chứa các nút đăng nhập / đăng xuất */
+    .header-right, .user-links {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .user-links > a, .header-right > a {
+        color: black;
+        text-decoration: none;
+    }
+
     .search-bar {
         flex: 1;
         display: flex;
@@ -28,30 +60,6 @@
         font-size: 16px;
     }
 
-    .logo {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-    }
-
-    .logo img {
-        height: 70px;
-    }
-
-    .user-links {
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .user-links > a {
-        color: black;
-        text-decoration: none;
-        margin-right: 20px;
-    }
-
     /* Navbar styles */
     .navbar-container {
         border-top: 1px solid #ccc;
@@ -67,15 +75,24 @@
 
     .navbar-nav .nav-item {
         display: inline-block;
+        margin-right: 20px; /* Khoảng cách giữa các thẻ */
     }
 
     .navbar-nav .nav-link {
         display: block;
         padding: 15px;
         text-decoration: none;
-        margin: 0 10px;
         position: relative;
         transition: color 0.5s;
+    }
+
+    .nav-item .nav-link {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-item .nav-link i {
+        margin-right: 8px; /* Khoảng cách giữa icon và chữ */
     }
 
     .navbar-nav .nav-link:hover {
@@ -102,19 +119,18 @@
 
     /* Search sidebar for smaller screens */
     .search-sidebar {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    height: 100%;
-    width: 500px;
-    background-color: white;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-    transition: left 0.3s ease;
-    padding: 20px;
-    z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100%;
+        width: 500px;
+        background-color: white;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        transition: left 0.3s ease;
+        padding: 20px;
+        z-index: 1000;
     }
 
-        /* Open state for search sidebar */
     .search-sidebar.open {
         left: 0;
     }
@@ -126,103 +142,67 @@
         cursor: pointer;
         margin-bottom: 20px;
     }
-    .nav-item {
-  display: inline-block;
-  margin-right: 20px; /* Thêm khoảng cách giữa các thẻ */
-}
 
-.nav-item .nav-link {
-  display: flex;
-  align-items: center;
-}
-
-.nav-item .nav-link i {
-  margin-right: 8px; /* Khoảng cách giữa icon và tên admin */
-}
     /* Media queries */
     @media (max-width: 992px) {
-        .user-links .icon .text {
+        .user-links .icon .text, .header-right .text {
             display: none;
         }
         .search-input {
-        display: none;
+            display: none;
         }
     }
 
     @media (min-width: 992px) {
         .nav-in-header {
-        display: none;
+            display: none;
         }
     }
 </style>
+
+
 <div class="header-container">
-    <!-- <nav class="navbar navbar-expand-lg nav-in-header">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="#">Just In</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Designers</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Clothing</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Shoes</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Bags & Accessories</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Home & Beauty</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Men</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">The Edit</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Sale</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Gifts</a></li>
-            </ul>
-        </div>
-    </nav> -->
+    <div class="header-left"></div>
 
-    <!-- Search icon for smaller screens -->
-   
-
-    <!-- Centered logo -->
     <div class="logo">
-        <a href="/ltw/index.php"><img src="https://shop-olivia.com/cdn/shop/files/thumbnail_OliviaLogo-BLK_400x.png?v=1689365415" alt="Olivia"></a>
+        <a href="/LTW_ASSIGNMENT/index.php">
+            <img src="https://shop-olivia.com/cdn/shop/files/thumbnail_OliviaLogo-BLK_400x.png?v=1689365415" alt="Olivia">
+        </a>
     </div>
 
-    <!-- User links on the right -->
-
-
-    <?php
-        if (!isset($_SESSION['email_ad'])) {
-        ?>
-         <div class="user-links">
-        <a href="/ltw/admin/login.php" class="icon"><i class="fas fa-user"></i><span class="text"> Login</span></a>
-        
-    </div>
-        
-    <?php
-        } else {
-        ?>
-
-<div class="nav-item">
-            <a class="nav-link" href="<?php echo $rootPath?>/index.php">
-            <i class="fa-light fa-crown"></i>
-              <?php 
-                $email = $_SESSION['email_ad'];
-                $sqlAdmin = "SELECT name FROM admin WHERE email = '$email'";
-                $ketQua = $conn->query($sqlAdmin);
-                $admin = $ketQua->fetch_array();
-                echo $admin['name'];
-              ?>
+    <div class="header-right">
+        <?php if (!isset($_SESSION['email_ad'])): ?>
+        <div class="user-links">
+            <a href="/LTW_ASSIGNMENT/admin/login.php" class="icon">
+                <i class="fas fa-user"></i><span class="text"> Login</span>
             </a>
-          </div>
-          <div class="nav-item">
-            <a class="nav-link" href="<?php echo $rootPath?>/logout.php">Log Out</a>
-          </div>
-
-       
-         
-        <?php
-    }
-    ?>
-
-    
+        </div>
+        <?php else: ?>
+            <div class="nav-item">
+                <a class="nav-link" href="<?= $rootPath ?>/index.php">
+                    <i class="fa-light fa-crown"></i>
+                    <?php 
+                        // Tối ưu: Nếu chưa sửa login.php thì query DB (có bảo mật), nếu sửa rồi thì lấy thẳng từ Session
+                        if (isset($_SESSION['name_ad'])) {
+                            echo htmlspecialchars($_SESSION['name_ad']);
+                        } else {
+                            $email = mysqli_real_escape_string($conn, $_SESSION['email_ad']);
+                            $ketQua = $conn->query("SELECT name FROM admin WHERE email = '$email'");
+                            if ($ketQua && $ketQua->num_rows > 0) {
+                                echo htmlspecialchars($ketQua->fetch_assoc()['name']);
+                            } else {
+                                echo 'Admin';
+                            }
+                        }
+                    ?>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link" href="<?= $rootPath ?>/logout.php">Log Out</a>
+            </div>
+        <?php endif; ?>
+    </div>
 </div>
 
 
@@ -231,39 +211,38 @@
 <!-- Search sidebar for smaller screens -->
 <div id="searchSidebar" class="search-sidebar">
     <button class="close-btn" onclick="toggleSearchSidebar()"></button>
-    <form action="/ltw/search.php" method="get">
+    <form action="/LTW_ASSIGNMENT/search.php" method="get">
         
                  <button class="btn btn-primary round-circle" type="submit"><i class="fa-regular fa-magnifying-glass text-white"></i></button>
 
         <input type="text" name="query" placeholder="What are you looking for?" class="search-input-responsive" style="width: 200px;">
     </form> 
 </div>
-<div class="navbar-container" style="background-color:rgba(248,249,250,1)!important">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto stroke">
-                <li class="nav-item"><a class="nav-link" href="<?php echo $rootPath ?>">Home</a></li>
-                
-                <li class="nav-item"><a class="nav-link" href="<?php echo $rootPath?>/report.php">Static</a></li>
-                <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Manage
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="<?php echo $rootPath?>/users/">User</a></li>
-              <li><a class="dropdown-item" href="<?php echo $rootPath?>/posts/">News</a></li>
-              <li><a class="dropdown-item" href="<?php echo $rootPath?>/products/">Product</a></li>
-              <li><a class="dropdown-item" href="<?php echo $rootPath?>/contacts/">Contact</a></li>
-              <li><a class="dropdown-item" href="<?php echo $rootPath?>/orders">Order</a></li>
-              
-             
-            </ul>
-          </li>
-                
-            </ul>
-        </div>
-    </nav>
-</div>
+
+<?php if (isset($_SESSION['email_ad'])): ?>
+    <div class="navbar-container" style="background-color:rgba(248,249,250,1)!important">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto stroke">
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $rootPath ?>">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $rootPath?>/report.php">Static</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Manage</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="<?php echo $rootPath?>/users/">User</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $rootPath?>/posts/">News</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $rootPath?>/products/">Product</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $rootPath?>/contacts/">Contact</a></li>
+                            <li><a class="dropdown-item" href="<?php echo $rootPath?>/orders">Order</a></li>
+                        </ul>
+                    </li> 
+                </ul>
+            </div>
+        </nav>
+    </div>
+<?php endif; ?>
+
 
 <script>
     function toggleSearchSidebar() {

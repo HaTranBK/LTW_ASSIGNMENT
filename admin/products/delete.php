@@ -1,7 +1,7 @@
 <?php
     session_start();
     ob_start();
-    $rootPath = '/Lap_trinh_web/admin';
+    $rootPath = '/LTW_ASSIGNMENT/admin';
     require_once '../../database/DB.php';
   
     if (isset($_GET['id'])) {
