@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-$rootPath = '/ltw';
+$rootPath = '/LTW_ASSIGNMENT';
 require_once '../database/DB.php';
 
 $sql = "SELECT email, password FROM user WHERE active = 1";

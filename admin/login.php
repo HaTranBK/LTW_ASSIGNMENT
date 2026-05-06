@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-$rootPath = '/ltw/admin';
+$rootPath = '/LTW_ASSIGNMENT/admin';
 require_once '../database/DB.php';
 
 $sql = "SELECT email, password FROM admin";

@@ -1,5 +1,5 @@
 <?php
-$rootPath = '/ltw';
+$rootPath = '/LTW_ASSIGNMENT';
 ?>
 <!DOCTYPE html>
 <html lang="en">

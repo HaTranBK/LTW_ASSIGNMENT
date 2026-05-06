@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-$rootPath = '/Project_Programming_Web';
+$rootPath = '/LTW_ASSIGNMENT';
 require_once './database/DB.php';
 ?>
 

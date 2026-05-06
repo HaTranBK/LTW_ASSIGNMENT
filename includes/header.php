@@ -263,7 +263,7 @@ padding:0;
 
     <!-- Search icon for smaller screens -->
     <div class="search-bar">
-    <form action="/ltw/search.php" method="get" class="d-flex me-3" role="search">
+    <form action="/LTW_ASSIGNMENT/search.php" method="get" class="d-flex me-3" role="search">
         <div class="input-group flex-nowrap search-top">
           <input hidden=true name="sort" value="all">
           <button class="btn round-circle" type="submit" 
@@ -280,7 +280,7 @@ padding:0;
 
     <!-- Centered logo -->
     <div class="logo">
-        <a href="/ltw/index.php"><img src="https://shop-olivia.com/cdn/shop/files/thumbnail_OliviaLogo-BLK_400x.png?v=1689365415" alt="Olivia"></a>
+        <a href="/LTW_ASSIGNMENT/index.php"><img src="https://shop-olivia.com/cdn/shop/files/thumbnail_OliviaLogo-BLK_400x.png?v=1689365415" alt="Olivia"></a>
     </div>
 
     <!-- User links on the right -->
@@ -290,8 +290,8 @@ padding:0;
         if (!isset($_SESSION['email_user'])) {
         ?>
          <div class="user-links">
-        <a href="/ltw/customer/login.php" class="icon"><i class="fas fa-user"></i><span class="text"> Login</span></a>
-        <a href="/ltw/cart.php" class="icon" id="headerCart"><i class="fas fa-shopping-cart" ></i><span class="text"></span></a>
+        <a href="/LTW_ASSIGNMENT/customer/login.php" class="icon"><i class="fas fa-user"></i><span class="text"> Login</span></a>
+        <a href="/LTW_ASSIGNMENT/cart.php" class="icon" id="headerCart"><i class="fas fa-shopping-cart" ></i><span class="text"></span></a>
     </div>
         
     <?php
@@ -299,7 +299,7 @@ padding:0;
         ?>
 
         <div class="user-links">
-        <a href="/ltw/cart.php" class="icon" id="headerCart"><i class="fas fa-shopping-cart" ></i><span class="text"> </span></a>
+        <a href="/LTW_ASSIGNMENT/cart.php" class="icon" id="headerCart"><i class="fas fa-shopping-cart" ></i><span class="text"> </span></a>
             <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <?php
                 $email = $_SESSION['email_user'];
@@ -311,11 +311,11 @@ padding:0;
               </button>
 
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/ltw/customer/my_account.php">Tài khoản</a></li>
-                <li><a class="dropdown-item" href="/ltw/customer/my_order.php">Đơn hàng</a></li>
-                <li><a class="dropdown-item" href="/ltw/customer/check_out.php">Thanh toán</a></li>
-                <li><a class="dropdown-item" href="/ltw/customer/changePassword.php">Đổi mật khẩu</a></li>
-                <li> <a class="dropdown-item" href="/ltw/customer/logout.php">Đăng xuất</a></li>
+                <li><a class="dropdown-item" href="/LTW_ASSIGNMENT/customer/my_account.php">Tài khoản</a></li>
+                <li><a class="dropdown-item" href="/LTW_ASSIGNMENT/customer/my_order.php">Đơn hàng</a></li>
+                <li><a class="dropdown-item" href="/LTW_ASSIGNMENT/customer/check_out.php">Thanh toán</a></li>
+                <li><a class="dropdown-item" href="/LTW_ASSIGNMENT/customer/changePassword.php">Đổi mật khẩu</a></li>
+                <li> <a class="dropdown-item" href="/LTW_ASSIGNMENT/customer/logout.php">Đăng xuất</a></li>
               </ul>
 
 
@@ -336,7 +336,7 @@ padding:0;
 <!-- Search sidebar for smaller screens -->
 <div id="searchSidebar" class="search-sidebar">
     <button class="close-btn" onclick="toggleSearchSidebar()"></button>
-    <form action="/ltw/search.php" method="get">
+    <form action="/LTW_ASSIGNMENT/search.php" method="get">
         
                  <button class="btn btn-primary round-circle" type="submit"><i class="fa-regular fa-magnifying-glass text-white"></i></button>
 
@@ -349,22 +349,22 @@ padding:0;
     <div class="dropdown">
   <button onclick="myFunction()" class="dropbtn">Menu <i class="fa-solid fa-bars"></i></button>
   <div id="myDropdown" class="dropdown-content">
-  <a class="nav-link" href="/ltw">Home</a>
-  <a class="nav-link" href="/ltw/product.php">Product</a>
-  <a class="nav-link" href="/ltw/contact.php">Contact</a>
-  <a class="nav-link" href="/ltw/posts.php">News</a>
-  <a class="nav-link" href="/ltw/policy.php">Policy</a>
+  <a class="nav-link" href="/LTW_ASSIGNMENT">Home</a>
+  <a class="nav-link" href="/LTW_ASSIGNMENT/product.php">Product</a>
+  <a class="nav-link" href="/LTW_ASSIGNMENT/contact.php">Contact</a>
+  <a class="nav-link" href="/LTW_ASSIGNMENT/posts.php">News</a>
+  <a class="nav-link" href="/LTW_ASSIGNMENT/policy.php">Policy</a>
   </div>
 </div>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto stroke">
-                <li class="nav-item"><a class="nav-link" href="/ltw">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/LTW_ASSIGNMENT">Home</a></li>
                 
-                <li class="nav-item"><a class="nav-link" href="/ltw/product.php">Product</a></li>
-                <li class="nav-item"><a class="nav-link" href="/ltw/contact.php">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="/ltw/posts.php">News</a></li>
+                <li class="nav-item"><a class="nav-link" href="/LTW_ASSIGNMENT/product.php">Product</a></li>
+                <li class="nav-item"><a class="nav-link" href="/LTW_ASSIGNMENT/contact.php">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="/LTW_ASSIGNMENT/posts.php">News</a></li>
                 
-                <li class="nav-item"><a class="nav-link" href="/ltw/policy.php">Policy</a></li>
+                <li class="nav-item"><a class="nav-link" href="/LTW_ASSIGNMENT/policy.php">Policy</a></li>
                 
             </ul>
         </div>

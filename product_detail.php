@@ -1,7 +1,7 @@
 <?php
     ob_start();
     session_start();
-    $rootPath = '/ltw';
+    $rootPath = '/LTW_ASSIGNMENT';
     require_once './database/DB.php';
     
     if (isset($_GET['productId'])) {

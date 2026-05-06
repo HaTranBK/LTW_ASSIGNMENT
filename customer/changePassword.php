@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-$rootPath = '/ltw';
+$rootPath = '/LTW_ASSIGNMENT';
 
 require '../PHPMailer/src/Exception.php';
 require '../PHPMailer/src/PHPMailer.php';

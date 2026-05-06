@@ -1,7 +1,7 @@
 <?php
     session_start();
     ob_start();
-    $rootPath = '/ltw';
+    $rootPath = '/LTW_ASSIGNMENT';
     if (!isset($_SESSION['email_user']) && empty($_SESSION['email_user']) ) header('location: login.php');
     require_once '../database/DB.php';
 ?>

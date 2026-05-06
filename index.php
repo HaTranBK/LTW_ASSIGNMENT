@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-$rootPath = '/Project_Programming_Web';
+$rootPath = '/LTW_ASSIGNMENT';
  require_once './database/DB.php';
 ?>
 <!DOCTYPE html>
@@ -460,7 +460,7 @@ $rootPath = '/Project_Programming_Web';
                 <!-- START RABANNE -->
                     <div class="rabanne row">
                         <div class="col-6 col-lg-3">
-                          <a href="http://localhost/ltw/product_detail.php?productId=14">  <img src="https://shop-olivia.com/cdn/shop/files/rhinestone-pin-cheyenne-blazer-in-ivory-606119.jpg?v=1731022825&width=400" alt="Skirt" class="object-fit-contain">
+                          <a href="http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=14">  <img src="https://shop-olivia.com/cdn/shop/files/rhinestone-pin-cheyenne-blazer-in-ivory-606119.jpg?v=1731022825&width=400" alt="Skirt" class="object-fit-contain">
                             </a>
                             <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
@@ -470,7 +470,7 @@ $rootPath = '/Project_Programming_Web';
                         </div>
 
                         <div class="col-6 col-lg-3">
-                           <a href="http://localhost/ltw/product_detail.php?productId=12"> <img src="https://shop-olivia.com/cdn/shop/files/joelle-embellished-cable-cardigan-in-charcoal-lilac-492855.jpg?v=1731020845&width=600" alt="Skirt" class="object-fit-contain">
+                           <a href="http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=12"> <img src="https://shop-olivia.com/cdn/shop/files/joelle-embellished-cable-cardigan-in-charcoal-lilac-492855.jpg?v=1731020845&width=600" alt="Skirt" class="object-fit-contain">
                             </a>
                             <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
@@ -480,7 +480,7 @@ $rootPath = '/Project_Programming_Web';
                         </div>
 
                         <div class="col-6 col-lg-3">
-                          <a href="http://localhost/ltw/product_detail.php?productId=16">  <img src="https://shop-olivia.com/cdn/shop/files/cuffed-benji-pant-in-indigo-643454.jpg?v=1730534570&width=600" alt="Skirt" class="object-fit-contain">
+                          <a href="http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=16">  <img src="https://shop-olivia.com/cdn/shop/files/cuffed-benji-pant-in-indigo-643454.jpg?v=1730534570&width=600" alt="Skirt" class="object-fit-contain">
                             </a>
                             <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
@@ -490,7 +490,7 @@ $rootPath = '/Project_Programming_Web';
                         </div>
 
                         <div class="col-6 col-lg-3">
-                       <a href="http://localhost/ltw/product_detail.php?productId=17">     <img src="https://shop-olivia.com/cdn/shop/files/giles-pant-in-plum-radish-433332.jpg?v=1730535102&width=600" alt="Skirt" class="object-fit-contain">
+                       <a href="http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=17">     <img src="https://shop-olivia.com/cdn/shop/files/giles-pant-in-plum-radish-433332.jpg?v=1730535102&width=600" alt="Skirt" class="object-fit-contain">
                             </a>
                             <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
@@ -508,7 +508,7 @@ $rootPath = '/Project_Programming_Web';
                 aria-labelledby="nav-simkhai-tab">
                     <div class="simkhai row">
                         <div class="col-6 col-lg-4">
-                          <a href="#http://localhost/ltw/product_detail.php?productId=23">  <img src="https://shop-olivia.com/cdn/shop/files/begum-sling-70-in-satin-black-856076.jpg?v=1730005396&width=600" alt="Shoes" class="object-fit-contain"> </a>
+                          <a href="#http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=23">  <img src="https://shop-olivia.com/cdn/shop/files/begum-sling-70-in-satin-black-856076.jpg?v=1730005396&width=600" alt="Shoes" class="object-fit-contain"> </a>
                             <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
                                 <div class="name">Ineze Skirt in Black</div>
@@ -517,7 +517,7 @@ $rootPath = '/Project_Programming_Web';
                         </div>
 
                         <div class="col-6 col-lg-4">
-                       <a href="http://localhost/ltw/product_detail.php?productId=24">     <img src="https://shop-olivia.com/cdn/shop/files/davina-embellished-wedge-in-black-943193.jpg?v=1730401110&width=600" alt="Shoes" class="object-fit-contain">
+                       <a href="http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=24">     <img src="https://shop-olivia.com/cdn/shop/files/davina-embellished-wedge-in-black-943193.jpg?v=1730401110&width=600" alt="Shoes" class="object-fit-contain">
                     </a>  
                             <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
@@ -527,7 +527,7 @@ $rootPath = '/Project_Programming_Web';
                         </div>
 
                         <div class="col-6 col-lg-4">
-                       <a href="http://localhost/ltw/product_detail.php?productId=25">     <img src="https://shop-olivia.com/cdn/shop/files/gilda-glass-slipper-in-pvc-transparent-416580.jpg?v=1731382984&width=600" alt="Shoes" class="object-fit-contain">
+                       <a href="http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=25">     <img src="https://shop-olivia.com/cdn/shop/files/gilda-glass-slipper-in-pvc-transparent-416580.jpg?v=1731382984&width=600" alt="Shoes" class="object-fit-contain">
                             </a>
                             <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
@@ -550,7 +550,7 @@ $rootPath = '/Project_Programming_Web';
                 aria-labelledby="nav-simon-miller-tab">
                     <div class="row">
                         <div class="col-6 col-lg-3">
-                       <a href="http://localhost/ltw/product_detail.php?productId=6">     <img src="https://shop-olivia.com/cdn/shop/files/sesame-street-tote-676256.jpg?v=1730197679&width=400" alt="Shoes" class="object-fit-contain">
+                       <a href="http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=6">     <img src="https://shop-olivia.com/cdn/shop/files/sesame-street-tote-676256.jpg?v=1730197679&width=400" alt="Shoes" class="object-fit-contain">
                      </a>
                        <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
@@ -560,7 +560,7 @@ $rootPath = '/Project_Programming_Web';
                         </div>
 
                         <div class="col-6 col-lg-3">
-                      <a href="http://localhost/ltw/product_detail.php?productId=8">      <img src="https://shop-olivia.com/cdn/shop/files/the-dude-shoulder-bag-in-black-428837.jpg?v=1730291888&width=200" alt="Shoes" class="object-fit-contain">
+                      <a href="http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=8">      <img src="https://shop-olivia.com/cdn/shop/files/the-dude-shoulder-bag-in-black-428837.jpg?v=1730291888&width=200" alt="Shoes" class="object-fit-contain">
                             </a>
                             <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
@@ -570,7 +570,7 @@ $rootPath = '/Project_Programming_Web';
                         </div>
 
                         <div class="col-6 col-lg-3">
-                     <a href="http://localhost/ltw/product_detail.php?productId=4">       <img src="https://shop-olivia.com/cdn/shop/files/milo-metallic-vegan-leather-clutch-in-smoky-silver-134768.jpg?v=1730290504&width=400" alt="Shoes" class="object-fit-contain">
+                     <a href="http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=4">       <img src="https://shop-olivia.com/cdn/shop/files/milo-metallic-vegan-leather-clutch-in-smoky-silver-134768.jpg?v=1730290504&width=400" alt="Shoes" class="object-fit-contain">
                             </a>
                             <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
@@ -582,7 +582,7 @@ $rootPath = '/Project_Programming_Web';
                        
 
                         <div class="col-6 col-lg-3">
-                       <a href="http://localhost/ltw/product_detail.php?productId=7">     <img src="https://shop-olivia.com/cdn/shop/files/simone-bag-in-navy-jet-412526.jpg?v=1730291520&width=400" alt="Shoes" class="object-fit-contain">
+                       <a href="http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=7">     <img src="https://shop-olivia.com/cdn/shop/files/simone-bag-in-navy-jet-412526.jpg?v=1730291520&width=400" alt="Shoes" class="object-fit-contain">
                             </a>
                             <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
@@ -602,7 +602,7 @@ $rootPath = '/Project_Programming_Web';
                     aria-labelledby="nav-zimmermann-tab">
                     <div class="row">
                         <div class="col-6 col-lg-3">
-                        <a href="http://localhost/ltw/product_detail.php?productId=18">    <img src="https://shop-olivia.com/cdn/shop/files/barrel-aged-balsamic-vinegar-945614.jpg?v=1730193810&width=400" alt="Shoes" class="object-fit-contain">
+                        <a href="http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=18">    <img src="https://shop-olivia.com/cdn/shop/files/barrel-aged-balsamic-vinegar-945614.jpg?v=1730193810&width=400" alt="Shoes" class="object-fit-contain">
                         </a>
                         <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
@@ -612,7 +612,7 @@ $rootPath = '/Project_Programming_Web';
                         </div>
 
                         <div class="col-6 col-lg-3">
-                      <a href="http://localhost/ltw/product_detail.php?productId=19">      <img src="https://shop-olivia.com/cdn/shop/files/roma-heirloom-tomato-candle-871512.jpg?v=1730197395&width=400" alt="Shoes" class="object-fit-contain">
+                      <a href="http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=19">      <img src="https://shop-olivia.com/cdn/shop/files/roma-heirloom-tomato-candle-871512.jpg?v=1730197395&width=400" alt="Shoes" class="object-fit-contain">
                             </a>
                             <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
@@ -622,7 +622,7 @@ $rootPath = '/Project_Programming_Web';
                         </div>
 
                         <div class="col-6 col-lg-3">
-                  <a href="http://localhost/ltw/product_detail.php?productId=22">          <img src="https://shop-olivia.com/cdn/shop/files/manuka-rich-cream-498030.jpg?v=1730196447&width=400" alt="Shoes" class="object-fit-contain">
+                  <a href="http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=22">          <img src="https://shop-olivia.com/cdn/shop/files/manuka-rich-cream-498030.jpg?v=1730196447&width=400" alt="Shoes" class="object-fit-contain">
                             </a>
                             <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
@@ -632,7 +632,7 @@ $rootPath = '/Project_Programming_Web';
                         </div>
 
                         <div class="col-6 col-lg-3">
-                       <a href="http://localhost/ltw/product_detail.php?productId=20">     <img src="https://shop-olivia.com/cdn/shop/files/california-native-mountain-wildflower-honey-742651.jpg?v=1730193958&width=400" alt="Shoes" class="object-fit-contain">
+                       <a href="http://localhost/LTW_ASSIGNMENT/product_detail.php?productId=20">     <img src="https://shop-olivia.com/cdn/shop/files/california-native-mountain-wildflower-honey-742651.jpg?v=1730193958&width=400" alt="Shoes" class="object-fit-contain">
                             </a>
                             <div class="description mt-3">
                                 <div class="title">ulla johnson</div>
