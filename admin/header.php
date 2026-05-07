@@ -3,10 +3,12 @@ session_start();
 ob_start();
 $rootPath = '/LTW_ASSIGNMENT/admin';
 if (!isset($_SESSION["email_ad"])) {
-    header('location: ../login.php');
+    // Dùng đường dẫn tuyệt đối bắt đầu từ tên thư mục gốc của bạn
+    header('location: /LTW_ASSIGNMENT/login.php');
     exit();
 }
-require_once '../database/DB.php';
+// Dùng __DIR__ để neo chính xác thư mục chứa file header.php
+require_once __DIR__ . '/../database/DB.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,19 +21,19 @@ require_once '../database/DB.php';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/images/icon/logo.png">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/css/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/metismenujs.min.css">
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="icon" type="image/png" href="<?php echo $rootPath; ?>/assets/images/icon/logo.png">
+    <link rel="stylesheet" href="<?php echo $rootPath; ?>/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $rootPath; ?>/assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="<?php echo $rootPath; ?>/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="<?php echo $rootPath; ?>/assets/css/metismenujs.min.css">
+    <link rel="stylesheet" href="<?php echo $rootPath; ?>/assets/css/swiper-bundle.min.css">
     <!-- amchart css -->
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     <!-- others css -->
-    <link rel="stylesheet" href="assets/css/typography.css">
-    <link rel="stylesheet" href="assets/css/default-css.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="<?php echo $rootPath; ?>/assets/css/typography.css">
+    <link rel="stylesheet" href="<?php echo $rootPath; ?>/assets/css/default-css.css">
+    <link rel="stylesheet" href="<?php echo $rootPath; ?>/assets/css/styles.css">
+    <link rel="stylesheet" href="<?php echo $rootPath; ?>/assets/css/responsive.css">
 </head>
 
 <body>

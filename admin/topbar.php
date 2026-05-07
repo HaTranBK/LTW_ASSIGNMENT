@@ -22,7 +22,7 @@
                         <div class="dropdown" style="padding-right: 15px;">
                             <div class="d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
                                 <span style="font-size: 15px; font-weight: 600; color: black; margin-right: 10px;">Thinh</span>
-                                <img src="assets/images/author/avatar.png" alt="avatar" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px; object-fit: cover;">
+                                <img src="<?php echo $rootPath; ?>/assets/images/author/avatar.png" alt="avatar" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px; object-fit: cover;">
                                 <i class="fa-solid fa-angle-down" style="color: black; font-size: 14px;"></i>
                             </div>
                             <div class="dropdown-menu dropdown-menu-end mt-2" style="border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
@@ -30,7 +30,7 @@
                                 <a class="dropdown-item" href="settings.php"><i class="fa-solid fa-gear" style="margin-right: 8px;"></i> Account Settings</a>
                                 <a class="dropdown-item" href="reset-pass.php"><i class="fa-solid fa-lock" style="margin-right: 8px;"></i> Reset Password</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="fa-solid fa-right-from-bracket" style="margin-right: 8px;"></i> Log Out</a>
+                                <a class="dropdown-item" href="logout.php"><i class="fa-solid fa-right-from-bracket" style="margin-right: 8px;"></i> Log Out</a>
                             </div>
                         </div>
                     </div>

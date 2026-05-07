@@ -1,29 +1,29 @@
 <?php
-session_start();
-ob_start();
-$rootPath = '/LTW_ASSIGNMENT';
-require_once '../database/DB.php';
+  session_start();
+  ob_start();
+  $rootPath = '/LTW_ASSIGNMENT';
+  require_once '../database/DB.php';
 
-$sql = "SELECT email, password FROM user WHERE active = 1";
-$ketqua = $conn->query($sql);
+  $sql = "SELECT email, password FROM user WHERE active = 1";
+  $ketqua = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
-    <link rel="stylesheet"  href="https://site-assets.fontawesome.com/releases/v6.1.2/css/all.css">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= $rootPath ?>/public/css/showPassword.css">
-  </head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập</title>
+  <link rel="stylesheet"  href="https://site-assets.fontawesome.com/releases/v6.1.2/css/all.css">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="<?= $rootPath ?>/public/css/showPassword.css">
+</head>
 <body >
 
 <?php 
-    require '../includes/header.php';
+  require '../includes/header.php';
    
 ?>
 
@@ -87,12 +87,12 @@ if (isset($_POST['login_user'])) {
     <div class="card-body p-md-5">
       <div class="row justify-content-center">
         <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-        <?php
-          if (isset($_SESSION['success'])) {
-              echo '<div id="success-message" class="mb-2 text-center"><div class="alert alert-success">'.$_SESSION['success'].'</div></div>';
-              // Xóa session 'success' sau khi hiển thị để tránh hiển thị lại khi trang được làm mới
-              unset($_SESSION['success']);
-          }
+          <?php
+            if (isset($_SESSION['success'])) {
+                echo '<div id="success-message" class="mb-2 text-center"><div class="alert alert-success">'.$_SESSION['success'].'</div></div>';
+                // Xóa session 'success' sau khi hiển thị để tránh hiển thị lại khi trang được làm mới
+                unset($_SESSION['success']);
+            }
           ?>
           <script>
             // Sử dụng JavaScript để ẩn thông báo sau 2 giây
@@ -125,30 +125,33 @@ if (isset($_POST['login_user'])) {
             
             <p>
               Bạn chưa có tài khoản?
-              <a href="/ltw/sign_up.php">Đăng kí ngay</a>
+              <a href="/LTW_ASSIGNMENT/sign_up.php">Đăng kí ngay</a>
             </p>
             <p class="mt-2 mb-2">
-              Quên mật khẩu? <a href="/ltw/auth/forgot_password.php">Lấy lại mật khẩu</a>
+              Quên mật khẩu? <a href="/LTW_ASSIGNMENT/auth/forgot_password.php">Lấy lại mật khẩu</a>
             </p>
-                <?php 
-                    if(!empty($tb)) {
-                      echo '<div class="alert alert-danger">'.$tb. '</div>';
-                    }
-                    else if(!empty($errorEmail)) {
-                        echo '<div class="alert alert-danger">'.$errorEmail. '</div>';
-                    } else if (!empty($errorPassword)) {
-                      echo '<div class="alert alert-danger">'.$errorPassword. '</div>';
-                    } 
+            <?php 
+                if(!empty($tb)) {
+                  echo '<div class="alert alert-danger">'.$tb. '</div>';
+                }
+                else if(!empty($errorEmail)) {
+                    echo '<div class="alert alert-danger">'.$errorEmail. '</div>';
+                } else if (!empty($errorPassword)) {
+                  echo '<div class="alert alert-danger">'.$errorPassword. '</div>';
+                } 
 
-                ?>
-                <?php 
-                    
-                ?>
-          <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-    <input type="submit" name="login_user" value="Login" class="btn btn-primary" style="background-color: black; border-color: black;" data-disable-with="Create account" />
-</div>
-        </form>        
-    </div>
+            ?>
+            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 gap-3">
+                  <!-- Nút đăng nhập cho Khách hàng -->
+                  <input type="submit" name="login_user" value="Login" class="btn btn-primary px-4" style="background-color: black; border-color: black;" />
+                  
+                  <!-- Nút chuyển sang đăng nhập Admin -->
+                  <a href="/LTW_ASSIGNMENT/admin/login.php" class="btn btn-outline-dark px-4">
+                      <i class="fa-solid fa-user-tie me-2"></i> Admin Login
+                  </a>
+            </div>
+          </form>        
+        </div>
         <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center justify-content-center order-1 order-lg-2">
           <img class="img-fluid rounded w-75" alt="Login image" src="https://logowik.com/content/uploads/images/script-signature-for-the-name-olivia2544.logowik.com.webp" />
         </div>

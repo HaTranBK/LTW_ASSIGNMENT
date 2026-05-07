@@ -33,105 +33,98 @@ require_once './database/DB.php';
 
 </style>
 
-
-
-    
-
 </head>
 
 <body>
     <?php
-    require './includes/header.php';
-    require './includes/navbar.php';
+        require './includes/header.php';
+        require './includes/navbar.php';
     ?>
 
     <?php
-    $sqlShowPosts = "SELECT * FROM post";
-
-    $posts = $conn->query($sqlShowPosts);
+        $sqlShowPosts = "SELECT * FROM post";
+        $posts = $conn->query($sqlShowPosts);
     ?>
 
-<h1 style=" text-align: center; font-size:45px;">News</h1>
+    <h1 style=" text-align: center; font-size:45px;">News</h1>
 
     <div class="container-fluid mt-5 mb-5">
         <div class="row">
-
             <div class="col">
                 <div class="container mb-5">
                     <div class="row">
                         <?php
-                        if ($posts->num_rows > 0) {
-                            $totalPosts = $posts->num_rows;
-                            $currentPage = 1;
-                            if (isset($_GET['page'])) {
-                                settype($_GET['page'], 'int'); // tránh injection, trang tự về 0
-                                $currentPage = $_GET['page'];
-                            }
-                            $limit = 6;
-                            $totalPage = ceil($totalPosts / $limit);
-
-                            // giới hạn phân trang trong 1-totalPage
-                            if ($currentPage > $totalPage) {
-                                $currentPage = $totalPage;
-                            } elseif ($currentPage < 1) {
+                            if ($posts->num_rows > 0) {
+                                $totalPosts = $posts->num_rows;
                                 $currentPage = 1;
-                            }
+                                if (isset($_GET['page'])) {
+                                    settype($_GET['page'], 'int'); // tránh injection, trang tự về 0
+                                    $currentPage = $_GET['page'];
+                                }
+                                $limit = 6;
+                                $totalPage = ceil($totalPosts / $limit);
 
-                            $start = ($currentPage - 1) * $limit;
-                            $sqlShowPosts = $sqlShowPosts . " LIMIT $start, $limit";
-                            $posts = $conn->query($sqlShowPosts);
-                            while ($row = $posts->fetch_assoc()) {
+                                // giới hạn phân trang trong 1-totalPage
+                                if ($currentPage > $totalPage) {
+                                    $currentPage = $totalPage;
+                                } elseif ($currentPage < 1) {
+                                    $currentPage = 1;
+                                }
+
+                                $start = ($currentPage - 1) * $limit;
+                                $sqlShowPosts = $sqlShowPosts . " LIMIT $start, $limit";
+                                $posts = $conn->query($sqlShowPosts);
+                                while ($row = $posts->fetch_assoc()) {
                         ?>
-                                <div class="col-xl-4 col-md-6 col-sm-12 mb-3">
-                                    <div class="card h-100" style="height: 200px; border:0;">
-                                    <div class="product-img" style="height:250px; display: flex; justify-content: center; align-items: center; overflow: hidden; padding-top:0;">
-    <a href="  <?php echo $rootPath ?>/post.php?postId=<?php echo $row['post_id'] ?> ">
-        <img src="<?php echo $row['image'] ?>" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-    </a>
-</div>                                        <div class="card-body d-flex flex-column justify-content-between">
-                                            <div class="d-flex flex-column justify-content-start">
-                                                <p style="font-weight:600; color:rgba(0, 0, 0, 0.55); font-family:Harmonia Sans, sans-serif; ">Blog</p>
-                                                <h4 class="card-title" style="font-weight:600; ">
-      <a href="<?php echo $rootPath ?>/post.php?postId=<?php echo $row['post_id'] ?>" style="color: inherit; text-decoration: none;">
-        <?php echo $row["title"]; ?>
-    </a>
-</h4>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="card-footer d-flex flex-column">
-                                            <a href="<?php echo $rootPath ?>/post.php?postId=<?php echo $row['post_id'] ?>" class="btn btn-primary" >Xem chi tiết</a>
-                                        </div> -->
+                        <div class="col-xl-4 col-md-6 col-sm-12 mb-3">
+                            <div class="card h-100" style="height: 200px; border:0;">
+                                <div class="product-img" style="height:250px; display: flex; justify-content: center; align-items: center; overflow: hidden; padding-top:0;">
+                                    <a href="  <?php echo $rootPath ?>/post.php?postId=<?php echo $row['post_id'] ?> ">
+                                        <img src="<?php echo $rootPath; ?>/images/<?php echo $row['image']; ?>" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                    </a>
+                                </div>                                  
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <div class="d-flex flex-column justify-content-start">
+                                        <p style="font-weight:600; color:rgba(0, 0, 0, 0.55); font-family:Harmonia Sans, sans-serif; ">Blog</p>
+                                        <h4 class="card-title" style="font-weight:600; ">
+                                            <a href="<?php echo $rootPath ?>/post.php?postId=<?php echo $row['post_id'] ?>" style="color: inherit; text-decoration: none;">
+                                                <?php echo $row["title"]; ?>
+                                            </a>
+                                        </h4>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
                         <?php
+                                }
+                            } 
+                            else {
+                                echo '<div class="alert alert-warning" role="alert"><i class="fa-light fa-circle-exclamation"></i> Không tìm thấy tin tức nào</div>';
                             }
-                        } else {
-                            echo '<div class="alert alert-warning" role="alert"><i class="fa-light fa-circle-exclamation"></i> Không tìm thấy tin tức nào</div>';
-                        }
 
-                        $conn->close();
+                            $conn->close();
                         ?>
                     </div>
                     <?php
-                    if ($posts->num_rows > 0) {
+                        if ($posts->num_rows > 0) {
                     ?>
                         <div class="row paging">
                             <!-- Phân trang -->
                             <nav class="mt-3">
                                 <ul class="pagination pagination-lg d-flex">
                                     <?php
-                                    if ($currentPage > 1 && $totalPage > 1) {
+                                        if ($currentPage > 1 && $totalPage > 1) {
                                     ?>
                                         <li class="page-item">
                                             <a href="<?php echo $rootPath ?>/posts.php?page=<?php echo ($currentPage - 1); ?>" class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" data-remote="true"><i class="fa-solid fa-arrow-left"></i></a>
                                         </li>
                                     <?php
-                                    }
+                                        }
                                     ?>
 
                                     <?php
-                                    for ($i = 1; $i <= $totalPage; $i++) {
-                                        if ($i == $currentPage) {
+                                        for ($i = 1; $i <= $totalPage; $i++) {
+                                            if ($i == $currentPage) {
                                     ?>
                                             <li class="page-item active">
                                                 <span rel="prev" class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" style="background-color:#C7C8C9; border:0; color:black;"   data-remote="true"><?php echo $i ?></span>
@@ -147,19 +140,19 @@ require_once './database/DB.php';
                                     }
                                     ?>
                                     <?php
-                                    if ($currentPage < $totalPage && $totalPage > 1) {
+                                        if ($currentPage < $totalPage && $totalPage > 1) {
                                     ?>
                                         <li class="page-item">
                                             <a href="<?php echo $rootPath; ?>/posts.php?page=<?php echo ($currentPage + 1) ?>" class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" data-remote="true"><i class="fa-solid fa-arrow-right"></i></a>
                                         </li>
                                     <?php
-                                    }
+                                        }
                                     ?>
                                 </ul>
                             </nav>
                         </div>
                     <?php
-                    }
+                        }
                     ?>
                 </div>
             </div>

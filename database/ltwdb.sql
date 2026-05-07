@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3307
--- Thời gian đã tạo: Th5 07, 2026 lúc 06:09 AM
+-- Thời gian đã tạo: Th5 07, 2026 lúc 09:17 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -196,14 +196,14 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`post_id`, `title`, `content`, `updated_at`, `image`) VALUES
-(1, 'Fashion Monday: Summer Basics', 'I\'ve spent the past couple of days cleaning my closet out and taking note of what items are missing or in need of an update; doing so, I realized it was time to replace some of my Spring/Summer basics. ', '2026-05-07 01:53:09', '/LTW_ASSIGNMENT/images/fashion-monday-summer-basics-877633.webp'),
-(2, 'Wednesday: Social Bug Edition', 'Wether it\'s a BBQ, a rooftop party, or simply lounging in your back-yard with friends, these pieces assure you will be the coolest and the chicest of the bunch…', '2024-11-12 12:54:58', '/ltw/images/wednesday-social-bug-edition-859185.webp'),
-(3, 'Mother\'s Day Gift Guide\n', 'Happy Wednesday!\nI can\'t believe it\'s already May... time flies...\nMother\'s Day is right around the corner and if you\'re like me, you\'re probably having trouble finding the perfect gift.\nThis year, I put my thinking hat on and curated a gift-guide to make Mother\'s Day shopping easier for us. The list is designed to help you choose the perfect item or to help you create your own combination. \nHappy Shopping! ', '2024-11-12 12:57:05', '/ltw/images/mothers-day-gift-guide-734600.webp'),
-(4, 'FASHION MONDAY: Ulla Johnson', 'Introducing Fashion Mondays with Olivia!\n\nYes, I understand Mondays can be quite dreadful...but I also believe there is nothing a little inspiration can’t fix! For this reason, I decided to share some creativity and fill your Mondays up with tons of fun outfit ideas you can look forward to making you own.\n\nThis week, I selected two of my favorite dresses from Ulla Johnson’s Spring collection and will show two ways you can style each of them. Want to know the best part? All you need to do is switch up the accessories to transition them from day to night!\n\n Hope you have a happy Monday.', '2024-11-12 12:58:21', '/ltw/images/fashion-monday-ulla-johnson-616857.webp'),
-(5, 'Fashion Monday: Pj Top Edition\n', 'Now that we are able to enjoy a little bit more of the outside, I\'m going to show you 3 ways I style my PJ tops for the outside world.', '2024-11-12 12:59:52', '/ltw/images/fashion-monday-pj-top-edition-255644.webp'),
-(6, 'Fashion Monday: Zimmerman Edition\n', 'Here at Olivia we received some beautiful pieces from Zimmerman’s Summer collection and I\'m obsessed to say the least! I tried a couple of my favorite swim suits from the collection to help you decide which ones to add to your cart. ', '2024-11-12 13:01:07', '/ltw/images/fashion-monday-zimmerman-edition-248195.png'),
-(7, 'Work from home: Quarantine Edition!\n', 'I came up with a couple of outfit formulas that are casual & chic enough to wear to a Zoom meeting at home, but can be styled and worn to any day-time activity once we’re able to venture out!\n', '2024-11-12 13:02:31', '/ltw/images/work-from-home-quarantine-edition-633468.webp'),
-(8, 'The Italian Charm\n', 'With Aquaman grossing over $200 Million across North America on New Year’s Day, and surpassing $822 million at the global box office by January 2nd, it’s safe to say that 2019 is going swimmingly for DC’s latest superhero offering.\n\nWhilst many movie fans have expressed their delight at seeing Jason Momoa as Aquaman, there’s no denying that Amber Heard is truly fierce as the super-powerful Mera.', '2024-11-12 13:04:08', '/ltw/images/the-italian-charm-174981.webp');
+(1, 'Fashion Monday-2: Summer Basics', 'I\'ve spent the past couple of days cleaning my closet out and taking note of what items are missing or in need of an update; doing so, I realized it was time to replace some of my Spring/Summer basics. ', '2026-05-07 06:27:21', 'fashion-monday-summer-basics-877633.webp'),
+(2, 'Wednesday: Social Bug Edition', 'Wether it\'s a BBQ, a rooftop party, or simply lounging in your back-yard with friends, these pieces assure you will be the coolest and the chicest of the bunch…', '2026-05-07 06:27:21', 'wednesday-social-bug-edition-859185.webp'),
+(3, 'Mother\'s Day Gift Guide\n', 'Happy Wednesday!\nI can\'t believe it\'s already May... time flies...\nMother\'s Day is right around the corner and if you\'re like me, you\'re probably having trouble finding the perfect gift.\nThis year, I put my thinking hat on and curated a gift-guide to make Mother\'s Day shopping easier for us. The list is designed to help you choose the perfect item or to help you create your own combination. \nHappy Shopping! ', '2026-05-07 06:27:21', 'mothers-day-gift-guide-734600.webp'),
+(4, 'FASHION MONDAY: Ulla Johnson', 'Introducing Fashion Mondays with Olivia!\n\nYes, I understand Mondays can be quite dreadful...but I also believe there is nothing a little inspiration can’t fix! For this reason, I decided to share some creativity and fill your Mondays up with tons of fun outfit ideas you can look forward to making you own.\n\nThis week, I selected two of my favorite dresses from Ulla Johnson’s Spring collection and will show two ways you can style each of them. Want to know the best part? All you need to do is switch up the accessories to transition them from day to night!\n\n Hope you have a happy Monday.', '2026-05-07 06:27:21', 'fashion-monday-ulla-johnson-616857.webp'),
+(5, 'Fashion Monday: Pj Top Edition\n', 'Now that we are able to enjoy a little bit more of the outside, I\'m going to show you 3 ways I style my PJ tops for the outside world.', '2026-05-07 06:27:21', 'fashion-monday-pj-top-edition-255644.webp'),
+(6, 'Fashion Monday: Zimmerman Edition\n', 'Here at Olivia we received some beautiful pieces from Zimmerman’s Summer collection and I\'m obsessed to say the least! I tried a couple of my favorite swim suits from the collection to help you decide which ones to add to your cart. ', '2026-05-07 06:27:21', 'fashion-monday-zimmerman-edition-248195.png'),
+(7, 'Work from home: Quarantine Edition!\n', 'I came up with a couple of outfit formulas that are casual & chic enough to wear to a Zoom meeting at home, but can be styled and worn to any day-time activity once we’re able to venture out!\n', '2026-05-07 06:27:21', 'work-from-home-quarantine-edition-633468.webp'),
+(12, 'abc', 'abcd\r\n', '2026-05-07 06:42:40', '1778136160_69fc346088fd3.png');
 
 -- --------------------------------------------------------
 
@@ -403,7 +403,7 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT cho bảng `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `product`

@@ -33,7 +33,7 @@ if (isset($_POST['login_ad'])) {
                 $_SESSION["email_ad"] = $row["email"];
                 $_SESSION["name_ad"] = $row["name"]; // <-- Dòng này để tối ưu cho cái Navbar lúc nãy!
                 
-                header('location: index.php');
+                header('location: index2.php');
                 exit(); // Bắt buộc phải có exit() sau khi dùng header chuyển trang
                 
             } else {

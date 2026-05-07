@@ -94,7 +94,7 @@
     </div>
     <div class="row">
         <div class="col-xl-4 col-md-6 col-sm-12">
-            <a href="/ltw/product.php" class="btn btn-primary">Trở về trang sản phẩm</a>
+            <a href="/LTW_ASSIGNMENT/product.php" class="btn btn-primary">Trở về trang sản phẩm</a>
         </div>
     </div>
 </div>

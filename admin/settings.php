@@ -31,8 +31,8 @@
                                     <div class="d-flex align-items-center mb-4">
                                         <div class="me-4">
                                             <picture>
-                                                <source srcset="assets/images/author/avatar.avif" type="image/avif">
-                                                <img src="assets/images/author/avatar.png" alt="Profile photo" class="rounded-circle" width="80" height="80">
+                                                <source srcset="<?php echo $rootPath; ?>/assets/images/author/avatar.avif" type="image/avif">
+                                                <img src="<?php echo $rootPath; ?>/assets/images/author/avatar.png" alt="Profile photo" class="rounded-circle" width="80" height="80">
                                             </picture>
                                         </div>
                                         <div>

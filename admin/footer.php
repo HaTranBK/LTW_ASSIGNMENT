@@ -12,9 +12,9 @@
     <!-- page container area end (đóng thẻ div.page-container mở ở header.php) -->
 
     <!-- bootstrap 5 js -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <script src="assets/js/metismenujs.min.js"></script>
+    <script src="<?php echo $rootPath; ?>/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo $rootPath; ?>/assets/js/swiper-bundle.min.js"></script>
+    <script src="<?php echo $rootPath; ?>/assets/js/metismenujs.min.js"></script>
 
     <!-- Chart.js 4 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
@@ -29,12 +29,12 @@
     }
     </script>
     <!-- all line chart activation -->
-    <script src="assets/js/line-chart.js"></script>
+    <script src="<?php echo $rootPath; ?>/assets/js/line-chart.js"></script>
     <!-- all bar chart activation -->
-    <script src="assets/js/bar-chart.js"></script>
+    <script src="<?php echo $rootPath; ?>/assets/js/bar-chart.js"></script>
     <!-- all pie chart -->
-    <script src="assets/js/pie-chart.js"></script>
-    <script src="assets/js/scripts.js"></script>
+    <script src="<?php echo $rootPath; ?>/assets/js/pie-chart.js"></script>
+    <script src="<?php echo $rootPath; ?>/assets/js/scripts.js"></script>
 </body>
 
 </html>
