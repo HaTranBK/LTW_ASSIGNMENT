@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 16, 2024 lúc 09:09 PM
+-- Máy chủ: 127.0.0.1:3307
+-- Thời gian đã tạo: Th5 07, 2026 lúc 06:09 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `email`, `password`, `name`, `role`, `updated_at`) VALUES
-(1, 'admin@hcmut.edu.vn', '$2y$10$.8c8OEDgbHEUM6lmB.mJk.vppsTxRyAvHcogQbjAvD/btY1Sr3NnW', 'Admin', 1, '2023-11-29 17:05:36');
+(5, 'admin@hcmut.edu.vn', '$2y$10$LK535cyC2MMNNGjYY9Jid.UXmk396fSR6gWogF30sY2ce/e4oLrka', 'Super Admin', 1, '2026-05-06 02:01:25');
 
 -- --------------------------------------------------------
 
@@ -114,17 +114,17 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`order_id`, `user_id`, `payment_method`, `payment`, `address_receiver`, `phone_receiver`, `updated_at`, `status`, `name_receiver`) VALUES
-(26, 51, 'Tiền mặt khi nhận hàng', 67000, 'KTX Khu A, ĐHQG - TP. HCM', '0359110455', '2023-11-28 07:40:47', 'Đang xử lý', 'Nguyen Duy Tung'),
-(28, 55, 'Tiền mặt khi nhận hàng', 19000, 'rrrr', '0978743012', '2026-05-11 13:07:21', 'Đang xử lý', 'thth'),
-(29, 55, 'Tiền mặt khi nhận hàng', 19000, 'trttr', '0978743012', '2026-05-11 13:07:50', 'Đang xử lý', 'thien'),
-(30, 55, 'Tiền mặt khi nhận hàng', 76000, 'thienhihi', '0978743012', '2026-11-10 11:55:55', 'Đang xử lý', 'thien'),
-(31, 55, 'Tiền mặt khi nhận hàng', 19000, '111', '0978743012', '2026-05-11 09:07:18', 'Đang xử lý', 'thien'),
-(32, 55, 'Tiền mặt khi nhận hàng', 57000, 'thiênn', '0978743012', '2026-05-11 09:50:34', 'Đang xử lý', 'thien'),
-(33, 55, 'Tiền mặt khi nhận hàng', 19000, 'iii', '0978777111', '2026-05-11 09:52:08', 'Đang xử lý', 'thien'),
-(34, 55, 'Tiền mặt khi nhận hàng', 19000, '111', '0978743012', '2024-05-07 09:53:25', 'Đang xử lý', 'thien'),
-(35, 55, 'Tiền mặt khi nhận hàng', 19000, '123', '0978743012', '2024-05-07 09:55:14', 'Đang xử lý', '123qweqwe'),
-(36, 55, 'Tiền mặt khi nhận hàng', 19000, '111', '0978743012', '2024-05-07 10:00:24', 'Đang xử lý', 'thien'),
-(37, 55, 'Tiền mặt khi nhận hàng', 19000, '111', '0978743012', '2024-05-07 10:02:40', 'Đang xử lý', 'thien'),
+(26, 56, 'Tiền mặt khi nhận hàng', 67000, 'KTX Khu A, ĐHQG - TP. HCM', '0359110455', '2026-05-07 01:45:11', 'Đang xử lý', 'Nguyễn Vĩ Nhân'),
+(28, 55, 'Tiền mặt khi nhận hàng', 19000, 'rrrr', '0978743012', '2026-05-07 01:45:23', 'Đang xử lý', 'thinh'),
+(29, 55, 'Tiền mặt khi nhận hàng', 19000, 'trttr', '0978743012', '2026-05-07 01:45:29', 'Đang xử lý', 'thinh'),
+(30, 55, 'Tiền mặt khi nhận hàng', 76000, 'thienhihi', '0978743012', '2026-05-07 01:45:47', 'Đang xử lý', 'thinh'),
+(31, 55, 'Tiền mặt khi nhận hàng', 19000, '111', '0978743012', '2026-05-07 01:45:41', 'Đang xử lý', 'thinh'),
+(32, 55, 'Tiền mặt khi nhận hàng', 57000, 'thiênn', '0978743012', '2026-05-07 01:46:03', 'Đang xử lý', 'thinh'),
+(33, 55, 'Tiền mặt khi nhận hàng', 19000, 'iii', '0978777111', '2026-05-11 01:45:55', 'Đang xử lý', 'thinh'),
+(34, 55, 'Tiền mặt khi nhận hàng', 19000, '111', '0978743012', '2026-05-11 01:46:32', 'Đang xử lý', 'thinh'),
+(35, 55, 'Tiền mặt khi nhận hàng', 19000, '123', '0978743012', '2026-05-11 09:55:14', 'Đang xử lý', '123qweqwe'),
+(36, 55, 'Tiền mặt khi nhận hàng', 19000, '111', '0978743012', '2026-05-11 10:00:24', 'Đang xử lý', 'thinh'),
+(37, 55, 'Tiền mặt khi nhận hàng', 19000, '111', '0978743012', '2026-05-11 01:47:26', 'Đang xử lý', 'thinh'),
 (38, 55, 'Tiền mặt khi nhận hàng', 19000, '111', '0978743012', '2024-11-11 10:04:37', 'Đang xử lý', 'thien'),
 (39, 55, 'Tiền mặt khi nhận hàng', 19000, '111', '0978743012', '2024-11-11 10:08:41', 'Đang xử lý', 'thth'),
 (40, 55, 'Tiền mặt khi nhận hàng', 19000, '111', '0978743012', '2024-11-11 10:10:06', 'Đang xử lý', 'thien'),
@@ -160,20 +160,13 @@ CREATE TABLE `order_item` (
 INSERT INTO `order_item` (`order_id`, `product_id`, `quantity_item`, `price`) VALUES
 (28, 3, 1, 19000),
 (29, 4, 1, 19000),
-(30, 2, 3, 19000),
 (30, 3, 1, 19000),
 (31, 3, 1, 19000),
-(32, 2, 1, 19000),
 (32, 3, 2, 19000),
-(33, 2, 1, 19000),
 (34, 3, 1, 19000),
-(35, 2, 1, 19000),
 (36, 3, 1, 19000),
-(37, 2, 1, 19000),
-(38, 2, 1, 19000),
 (39, 3, 1, 19000),
 (40, 3, 1, 19000),
-(41, 2, 1, 19000),
 (42, 3, 1, 19000),
 (43, 3, 1, 19000),
 (44, 4, 1, 19000),
@@ -181,7 +174,6 @@ INSERT INTO `order_item` (`order_id`, `product_id`, `quantity_item`, `price`) VA
 (46, 3, 1, 19000),
 (47, 3, 1, 19000),
 (48, 3, 1, 19000),
-(49, 2, 1, 19000),
 (50, 3, 3, 19000),
 (51, 3, 1, 5000000);
 
@@ -204,7 +196,7 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`post_id`, `title`, `content`, `updated_at`, `image`) VALUES
-(1, 'Fashion Monday: Summer Basics', 'I\'ve spent the past couple of days cleaning my closet out and taking note of what items are missing or in need of an update; doing so, I realized it was time to replace some of my Spring/Summer basics. ', '2024-11-12 12:50:57', '/ltw/images/fashion-monday-summer-basics-877633.webp'),
+(1, 'Fashion Monday: Summer Basics', 'I\'ve spent the past couple of days cleaning my closet out and taking note of what items are missing or in need of an update; doing so, I realized it was time to replace some of my Spring/Summer basics. ', '2026-05-07 01:53:09', '/LTW_ASSIGNMENT/images/fashion-monday-summer-basics-877633.webp'),
 (2, 'Wednesday: Social Bug Edition', 'Wether it\'s a BBQ, a rooftop party, or simply lounging in your back-yard with friends, these pieces assure you will be the coolest and the chicest of the bunch…', '2024-11-12 12:54:58', '/ltw/images/wednesday-social-bug-edition-859185.webp'),
 (3, 'Mother\'s Day Gift Guide\n', 'Happy Wednesday!\nI can\'t believe it\'s already May... time flies...\nMother\'s Day is right around the corner and if you\'re like me, you\'re probably having trouble finding the perfect gift.\nThis year, I put my thinking hat on and curated a gift-guide to make Mother\'s Day shopping easier for us. The list is designed to help you choose the perfect item or to help you create your own combination. \nHappy Shopping! ', '2024-11-12 12:57:05', '/ltw/images/mothers-day-gift-guide-734600.webp'),
 (4, 'FASHION MONDAY: Ulla Johnson', 'Introducing Fashion Mondays with Olivia!\n\nYes, I understand Mondays can be quite dreadful...but I also believe there is nothing a little inspiration can’t fix! For this reason, I decided to share some creativity and fill your Mondays up with tons of fun outfit ideas you can look forward to making you own.\n\nThis week, I selected two of my favorite dresses from Ulla Johnson’s Spring collection and will show two ways you can style each of them. Want to know the best part? All you need to do is switch up the accessories to transition them from day to night!\n\n Hope you have a happy Monday.', '2024-11-12 12:58:21', '/ltw/images/fashion-monday-ulla-johnson-616857.webp'),
@@ -237,7 +229,6 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `name`, `category_id`, `description`, `images`, `quantity`, `price`, `price_sale`, `timestamp`, `images1`) VALUES
-(2, '1969 Embellished Nano Bag in Silver', 1, '1969 Embellished Nano Bag by Rabanne\n\nDetails:\n\nComposition:\n35% Brass / 35% Glass / 30% Steel\nColor: Silver\nMade in Madagascar\nFall 2024', 'Bags/1969-embellished-nano-bag-in-silver-598510.webp', 10, 10000000, 5000000, '2024-11-13 01:43:50', '/ltw/images/Bags/1969-embellished-nano-bag-in-silver-598510.webp'),
 (3, '1969 Leather Nano Bag in Dark Brown\n', 1, '1969 Leather Nano Bag by Rabanne\n\nDetails:\n\nComposition:\n90% Leather / 10% Steel\nColor: Dark Brown\nMade in Madagascar\nFall 2024', 'Bags/1969-leather-nano-bag-in-dark-brown-520811.webp', 10, 10000000, 5000000, '2024-11-13 01:44:20', '/ltw/images/Bags/1969-leather-nano-bag-in-dark-brown-520811.webp'),
 (4, 'Milo Metallic Vegan Leather Clutch in Smoky Silver', 1, 'Milo Metallic Vegan Leather Clutch by A.L.C.\n\nDetails:\n\nComposition:\n100% Vegan Leather \nColor: Smoky Silver\nImported\nSize: 9in x 5in\nHoliday 2024', 'Bags/milo-metallic-vegan-leather-clutch-in-smoky-silver-134768.webp', 10, 6500000, 6000000, '2024-11-13 01:44:44', '/ltw/images/Bags/milo-metallic-vegan-leather-clutch-in-smoky-silver-134768.webp'),
 (5, 'Sac Main Tote Bag in Silver\n', 1, 'Sac Main Tote Bag by Rabanne\n\nDetails:\n\nComposition:\n80% Aluminum / 15% Lamb / 5% Brass\nColor: Silver\nMade in Madagascar\nPre-Fall 2024', 'Bags/sac-main-tote-bag-in-silver-883502.jpg', 10, 7200000, 6000000, '2024-11-13 01:45:16', '/ltw/images/Bags/sac-main-tote-bag-in-silver-883502.jpg'),
@@ -310,12 +301,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `email`, `password`, `name`, `avatar`, `phone`, `address`, `updated_at`, `verify_code`, `active`) VALUES
-(50, 'tung.nguyen2k3hcmut@hcmut.edu.vn', '$2y$10$/GHcGmvcwaOjD2pRcSknuOLdS8e.XvNJIL6NFiaLZq4nsrNufsfZ.', 'Nguyễn Duy Tùng', NULL, '0354304095', 'KTX Khu A, ĐHQG - TP. HCM', '2023-12-06 06:55:35', 355119, b'1'),
-(51, 'binh.nguyenhelloworld@hcmut.edu.vn', '$2y$10$X7aTa1sHjqX266HvyT1C0.SDzE0Yl5MiHBGtW38LiJOb3Z0FYNpeK', 'Nguyễn Đức Bình', NULL, '0394433666', 'KTX Khu A, ĐHQG - TP. HCM', '2023-12-06 00:30:07', 109582, b'1'),
+(50, 'tung.nguyen2k3hcmut@hcmut.edu.vn', '$2y$10$/GHcGmvcwaOjD2pRcSknuOLdS8e.XvNJIL6NFiaLZq4nsrNufsfZ.', 'Trần Ngọc Hà', NULL, '0354304095', 'KTX Khu A, ĐHQG - TP. HCM', '2026-05-07 01:40:11', 355119, b'1'),
+(51, 'binh.nguyenhelloworld@hcmut.edu.vn', '$2y$10$X7aTa1sHjqX266HvyT1C0.SDzE0Yl5MiHBGtW38LiJOb3Z0FYNpeK', 'Bùi Đăng Khoa', NULL, '0394433666', 'KTX Khu A, ĐHQG - TP. HCM', '2026-05-07 01:40:24', 109582, b'1'),
 (53, 'tungnd.goat@gmail.com', '$2y$10$6QKSTVfZiYoEHM.Yc51qrOxqYGxaRQBn9FLyvNg5NOGk60eKua1nu', 'Tung Nguyen', NULL, '2332313543', 'dia chi ', '2023-12-06 07:27:08', 126110, b'1'),
-(54, 'luan.nguyenexecutive@hcmut.edu.vn', '$2y$10$1vZqSwRuIR0PVPPuYSBJwuhf6J0yAJHwiu.kgdxy3vbK3YuLcEwUy', 'binh.nguyenhelloworld@hcmut.edu.vn', NULL, '0394433666', '1/9 Đồ Sơn, quận Tân Bình, TP. HCM', '2023-12-06 07:36:40', 496584, b'1'),
-(55, 'thien.cheviet1404@hcmut.edu.vn', '$2y$10$31qKz1dS.VD8pVIlx6LPuurRCD1wRK8hkifzycYXNmJIuQVfi/zNO', 'thien', NULL, '0978743012', '231qwqeq', '2024-11-13 10:32:09', 162763, b'1'),
-(56, 'thienoccho567@gmail.com', '$2y$10$zOv.FWnye0gKwfoShjNPF.gNbpJBy7C6.eFByhKDdF6jkcKtUf5Q6', 'thien', NULL, '0978743991', 'thien', '2024-11-11 18:13:20', 311053, b'1');
+(54, 'luan.nguyenexecutive@hcmut.edu.vn', '$2y$10$1vZqSwRuIR0PVPPuYSBJwuhf6J0yAJHwiu.kgdxy3vbK3YuLcEwUy', 'Nguyễn Vĩ Nhân', NULL, '0394433666', '1/9 Đồ Sơn, quận Tân Bình, TP. HCM', '2026-05-07 01:44:25', 496584, b'1'),
+(55, 'thinh.buiphuocthinh@hcmut.edu.vn', '$2y$10$31qKz1dS.VD8pVIlx6LPuurRCD1wRK8hkifzycYXNmJIuQVfi/zNO', 'thinh', NULL, '0978743012', '231qwqeq', '2026-05-07 01:35:12', 162763, b'1'),
+(56, 'bphuocthinh@gmail.com', '$2y$10$zOv.FWnye0gKwfoShjNPF.gNbpJBy7C6.eFByhKDdF6jkcKtUf5Q6', 'thinh2802', NULL, '0978743991', 'thinh\r\n', '2026-04-05 18:13:20', 311053, b'1');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -388,7 +379,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
