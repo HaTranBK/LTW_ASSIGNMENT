@@ -4,7 +4,7 @@ require_once '../database/DB.php';
 
 // Thông tin tài khoản admin muốn tạo
 $email = 'admin@hcmut.edu.vn'; 
-$name = 'Super Admin';
+$name = 'Thinh';
 $mat_khau_goc = '123456'; 
 $role = 1; // 1: Quản trị cấp cao, 0: Nhân viên
 
