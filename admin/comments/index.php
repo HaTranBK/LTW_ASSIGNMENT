@@ -7,7 +7,7 @@
     <div class="row align-items-center">
         <div class="col-sm-12">
             <div class="breadcrumbs-area clearfix">
-                <h1 class="page-title float-start">Manage Posts</h1>
+                <h1 class="page-title float-start">Manage Reviews</h1>
             </div>
         </div>
     </div>
@@ -21,10 +21,7 @@
                 <div class="card-body">
                     <!-- Tiêu đề và nút thêm mới -->
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h4 class="header-title mb-0">Post List</h4>
-                        <a href="add.php" class="btn btn-primary" style="background-color: purple; border-color: purple;">
-                            <i class="fa-solid fa-plus me-2"></i> Add New Post
-                        </a>
+                        <h4 class="header-title mb-0">Review List</h4>
                     </div>
 
                     <!-- Bảng dữ liệu -->
@@ -34,49 +31,61 @@
                                 <thead class="text-uppercase bg-primary">
                                     <tr class="text-white">
                                         <th scope="col">ID</th>
-                                        <th scope="col">Image</th>
+                                        <th scope="col">Product ID</th>
+                                        <th scope="col">User ID</th>
                                         <th scope="col" style="text-align: left;">Title</th>
+                                        <th scope="col" style="text-align: left;">Content</th>
                                         <th scope="col">Last Updated</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    // Truy vấn lấy danh sách post
-                                    $sql = "SELECT post_id, title, updated_at, image FROM `post` ORDER BY updated_at DESC";
+                                    // Truy vấn lấy danh sách đánh giá
+                                    $sql = "SELECT review_id, product_id, user_id, title, content, updated_at FROM `review` ORDER BY updated_at DESC";
                                     $result = mysqli_query($conn, $sql);
 
                                     if ($result && mysqli_num_rows($result) > 0) {
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             // Format lại thời gian
                                             $formattedDate = date('d/m/Y - H:i', strtotime($row['updated_at']));
-                                            // Xử lý ảnh (nếu không có ảnh thì hiển thị ảnh mặc định)
-                                            $imageSrc = !empty($row['image']) ? '/LTW_ASSIGNMENT/images/' . htmlspecialchars($row['image']) : '/LTW_ASSIGNMENT/admin/assets/images/default-image.png';
-
-                                            // Cot ID
-                                            echo "<td>" . $row['post_id'] . "</td>";
-                                            // Cột hình ảnh
-                                            echo "<td><img src='" . $imageSrc . "' alt='post-img' style='width: 60px; height: 60px; object-fit: cover; border-radius: 5px;'></td>";
                                             
-                                            // Cột tiêu đề (căn trái cho dễ đọc)
-                                            echo "<td style='text-align: left;'>" . htmlspecialchars($row['title']) . "</td>";
+                                            // Rút gọn nội dung review nếu quá dài (hiển thị 50 ký tự đầu)
+                                            $contentSnippet = mb_strlen($row['content']) > 50 ? mb_substr($row['content'], 0, 50) . '...' : $row['content'];
+
+                                            echo "<tr>";
+                                            // Cột ID
+                                            echo "<td>" . $row['review_id'] . "</td>";
+                                            
+                                            // Cột Product ID
+                                            echo "<td>" . $row['product_id'] . "</td>";
+                                            
+                                            // Cột User ID
+                                            echo "<td>" . $row['user_id'] . "</td>";
+                                            
+                                            // Cột tiêu đề (căn trái)
+                                            echo "<td style='text-align: left; font-weight: bold;'>" . htmlspecialchars($row['title']) . "</td>";
+                                            
+                                            // Cột nội dung (căn trái và rút gọn)
+                                            echo "<td style='text-align: left;'>" . htmlspecialchars($contentSnippet) . "</td>";
                                             
                                             // Cột ngày cập nhật
                                             echo "<td>" . $formattedDate . "</td>";
                                             
                                             // Cột Action (Chứa nút Sửa và Xóa)
                                             echo "<td>
-                                                <a href='edit.php?id=" . $row['post_id'] . "' class='text-primary me-3' title='Edit'>
+                                                <a href='edit.php?id=" . $row['review_id'] . "' class='text-primary me-3' title='Edit'>
                                                     <i class='fa-solid fa-pen-to-square'></i>
                                                 </a>
-                                                <a href='delete.php?id=" . $row['post_id'] . "' class='text-danger' title='Delete' onclick=\"return confirm('Bạn có chắc chắn muốn xóa bài viết này không?');\">
+                                                <a href='delete.php?id=" . $row['review_id'] . "' class='text-danger' title='Delete' onclick=\"return confirm('Bạn có chắc chắn muốn xóa đánh giá này không?');\">
                                                     <i class='ti-trash'></i>
                                                 </a>
                                             </td>";
                                             echo "</tr>";
                                         }
                                     } else {
-                                        echo "<tr><td colspan='5' class='text-center py-4'>Chưa có bài viết nào!</td></tr>";
+                                        // Cập nhật colspan thành 7 vì bảng giờ có 7 cột
+                                        echo "<tr><td colspan='7' class='text-center py-4'>Chưa có đánh giá nào!</td></tr>";
                                     }
                                     ?>
                                 </tbody>

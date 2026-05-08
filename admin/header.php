@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ob_start();
 $rootPath = '/LTW_ASSIGNMENT/admin';
 if (!isset($_SESSION["email_ad"])) {
