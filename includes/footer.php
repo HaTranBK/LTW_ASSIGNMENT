@@ -213,10 +213,14 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
 }
 </style>
+<?php
+require_once __DIR__ . '/../helper/settings.php';
+$footerSettings = getSettings();
+?>
 <footer class="footer">
     <div class="footer-section">
         <h3>EXPLORE YOUR INNER OLIVIA</h3>
-        <p>At Olivia, our mission is to curate a thoughtfully selected collection of high-end fashion, where every detail reflects the elegance, sophistication, and individuality of our clientele. Olivia isn't just a brand; she’s a persona that invites everyone to explore their unique style. In Olivia’s world, self-expression and empowerment through fashion are everyday essentials, encouraging personal discovery within an elegant and captivating atmosphere.</p>
+        <p><?php echo $footerSettings['introduction']; ?></p>
         
         <div class="footer-country">
             <select>
@@ -235,6 +239,8 @@
             <li><a href="#">Returns & Exchanges</a></li>
             <li><a href="#">Term and Conditions</a></li>
             <li><a href="#">Privacy Policy</a></li>
+            <li class="mt-2 text-white-50"><i class="fa-solid fa-phone me-2"></i> <?php echo $footerSettings['phone']; ?></li>
+            <li class="text-white-50"><i class="fa-solid fa-location-dot me-2"></i> <?php echo $footerSettings['address']; ?></li>
         </ul>
     </div>
 
@@ -252,12 +258,12 @@
         <div class="social-icons">
         <ul>
             <li>
-                <a href="https://www.facebook.com/OliviaBoutiquePage/" target="_blank">
+                <a href="<?php echo $footerSettings['facebook']; ?>" target="_blank">
                     <i class="fab fa-facebook-f icon"></i>
                 </a>
             </li>
             <li>
-                <a href="https://www.instagram.com/oliviaboutique/?hl=es-la" target="_blank">
+                <a href="<?php echo $footerSettings['instagram']; ?>" target="_blank">
                     <i class="fa-brands fa-instagram icon"></i>
                 </a>
             </li>

@@ -30,6 +30,14 @@
 ?>
 
 <div class="container-fluid">
+    <?php if (isset($_SESSION['thongBao'])): ?>
+        <div class="alert alert-success mt-3">
+            <?php 
+            echo $_SESSION['thongBao']; 
+            unset($_SESSION['thongBao']);
+            ?>
+        </div>
+    <?php endif; ?>
     <table class="table table-striped">
       <thead>
         <tr class="table-primary text-center">
@@ -63,11 +71,18 @@
                 }
             ?>
          </td>
-          <td class='align-middle'>
-            <?php
-            if ($row["status"] == 0) 
-              echo "<button type='button' class='btn btn-primary m-1' onclick='sendMail(); return false'><i class='fa-regular fa-envelope'></i></button>";
-            ?>    
+          <td class='align-middle text-center'>
+            <?php if ($row["status"] == 0): ?>
+              <a href="action.php?action=mark_replied&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-success m-1" title="Đánh dấu đã phản hồi">
+                <i class="fa-solid fa-check"></i>
+              </a>
+              <button type='button' class='btn btn-sm btn-primary m-1' onclick="sendMail('<?php echo $row['email']; ?>')">
+                <i class='fa-regular fa-envelope'></i>
+              </button>
+            <?php endif; ?>
+            <a href="action.php?action=delete&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger m-1" onclick="return confirm('Bạn có chắc chắn muốn xóa liên hệ này?')" title="Xóa">
+              <i class="fa-solid fa-trash"></i>
+            </a>
           </td>
         </tr>
       </tbody>
@@ -85,10 +100,9 @@
 
 <script>
     function sendMail(email) {
-    var link = "mailto:me@example.com"
-             + "?cc=myCCaddress@example.com"
-             + "&subject=" + encodeURIComponent("")
-             + "&body=" + encodeURIComponent()
+    var link = "mailto:" + email
+             + "?subject=" + encodeURIComponent("Phản hồi liên hệ")
+             + "&body=" + encodeURIComponent("Chào bạn,\n\n")
     ;
     window.location.href = link;
 }
