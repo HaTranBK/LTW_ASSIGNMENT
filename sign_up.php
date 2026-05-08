@@ -2,15 +2,7 @@
 $rootPath = '/LTW_ASSIGNMENT';
 require_once './database/DB.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require './PHPMailer/src/Exception.php';
-require './PHPMailer/src/PHPMailer.php';
-require './PHPMailer/src/SMTP.php';
-
-include_once './helper/sendMail.php';
-
+// Đã bỏ các dòng require PHPMailer và helper gửi mail ở đây
 ?>
 
 <?php
@@ -22,6 +14,7 @@ include_once './helper/sendMail.php';
     $address = '';
     $password = '';
     $re_password = '';
+
     if (isset($_POST['register'])) {
         $is_validated = true;
         $errorName = $errorEmail = $errorPhone = $errorPassword = $errorRePassword = "";
@@ -56,25 +49,23 @@ include_once './helper/sendMail.php';
           $is_validated = false;
           $errorRePassword = "Nhập mật khẩu lần 2 không khớp.";
         }
+
         if ($is_validated) {
           $hashPassword = password_hash($password, PASSWORD_DEFAULT);
-          $verifyCode = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
-          // $verifyCode = isset($_SESSION['generated_otp']) ? $_SESSION['generated_otp'] : '';
-          $sql = "INSERT INTO user (name, email, phone, address, password, verify_code) 
-                  VALUES ('$name', '$email', '$phone', '$address', '$hashPassword', '$verifyCode')";
+          
+          // Vẫn giữ lại verifyCode để lưu vào database (nếu database của bạn bắt buộc field này không được null)
+          $verifyCode = '';
+          $active = 1; // Set active to 1 for newly registered users
+
+          $sql = "INSERT INTO user (name, email, phone, address, password, verify_code, active) 
+                  VALUES ('$name', '$email', '$phone', '$address', '$hashPassword', '$verifyCode', $active)";
+                  
           if ($conn->query($sql) === TRUE) {
-              // send mail 
-              $receiver = [
-                'name' => $name,
-                'email' => $email,
-                'password' => $password,
-              ];
-              // print_r($receiver);
-              // exit;
-              // verifyEmail($mail, $receiver, $verifyCode);
-              // header("Location: ./customer/verifyOTP.php");
-              verifyEmail($mail, $receiver, $verifyCode);
-              header("Location: ./auth/register.php?email=$email");
+              // ĐÃ XÓA PHẦN GỬI MAIL (verifyEmail) Ở ĐÂY
+              
+              // Bạn có thể giữ nguyên thẻ header cũ hoặc đổi thẳng sang trang đăng nhập
+              // header("Location: ./auth/register.php?email=$email"); 
+              header("Location: ./customer/login.php"); // Chuyển thẳng về trang login vì không cần xác nhận OTP nữa
           } else {
               echo "Error: ". $conn->error;
           }

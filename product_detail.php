@@ -13,7 +13,6 @@
     $product = $conn->query($sqlFindProduct);
 ?>
 
-
 <?php
     require './includes/header.php';
     require './includes/navbar.php';
@@ -34,7 +33,6 @@ if ($product->num_rows > 0) {
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="./public/css/base.css">
-    <!-- <link rel="stylesheet" href="./public/css/home.css"> -->
 </head>
 <body>
 <section class="bg-light">
@@ -42,80 +40,7 @@ if ($product->num_rows > 0) {
         <div class="row">
             <div class="col-lg-5 mt-5">
                 <div class="card mb-3">
-                    <img class="card-img rounded img-fluid" id="product-detail" alt="bla" src="./public/img/products/<?php echo $row["images"]; ?>">
-                </div>
-                <div class="row">
-                    <!--Start Controls-->
-                    <div class="col-1 align-self-center">
-                        <a href="#multi-item-example" role="button" data-bs-slide="prev">
-                            <i class="text-dark fas fa-chevron-left"></i>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </div>
-                    <!--End Controls-->
-                    <!--Start Carousel Wrapper-->
-                        <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
-                        <!--Start Slides-->
-                        <div class="carousel-inner product-links-wap" role="listbox">
-                            <!--First slide-->
-                            <div class="carousel-item active">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <img class="card-img img-fluid" src="<?php echo $row["images1"]; ?>" alt="Product Image 1">
-                                    </div>
-                                    <div class="col-4">
-                                        <img class="card-img img-fluid" src="<?php echo $row["images1"]; ?>" alt="Product Image 2">
-                                    </div>
-                                    <div class="col-4">
-                                        <img class="card-img img-fluid" src="<?php echo $row["images1"]; ?>" alt="Product Image 3">
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/.First slide-->
-
-                            <!--Second slide-->
-                            <div class="carousel-item">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <img class="card-img img-fluid" src="<?php echo $row["images1"]; ?>" alt="Product Image 4">
-                                    </div>
-                                    <div class="col-4">
-                                        <img class="card-img img-fluid" src="<?php echo $row["images1"]; ?>" alt="Product Image 5">
-                                    </div>
-                                    <div class="col-4">
-                                        <img class="card-img img-fluid" src="<?php echo $row["images1"]; ?>" alt="Product Image 6">
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/.Second slide-->
-
-                            <!--Third slide-->
-                            <div class="carousel-item">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <img class="card-img img-fluid" src="<?php echo $row["images1"]; ?>" alt="Product Image 7">
-                                    </div>
-                                    <div class="col-4">
-                                        <img class="card-img img-fluid" src="<?php echo $row["images1"]; ?>" alt="Product Image 8">
-                                    </div>
-                                    <div class="col-4">
-                                        <img class="card-img img-fluid" src="<?php echo $row["images1"]; ?>" alt="Product Image 9">
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/.Third slide-->
-                        <!--First slide-->
-                        </div>
-                    </div>
-                    <!--End Carousel Wrapper-->
-                    <!--Start Controls-->
-                    <div class="col-1 align-self-center">
-                        <a href="#multi-item-example" role="button" data-bs-slide="next">
-                            <i class="text-dark fas fa-chevron-right"></i>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                    <!--End Controls-->
+                    <img class="card-img rounded img-fluid" id="product-detail" alt="<?php echo $row["name"]; ?>" src="./public/img/products/<?php echo $row["images"]; ?>">
                 </div>
             </div>
             <!-- col end -->
@@ -164,7 +89,7 @@ if ($product->num_rows > 0) {
                                 <div class="col-7">
                                     <ul class="list-inline pb-3 equal-width">
                                         <li class="list-inline-item text-right col-2.5">
-                                            <label class="form-label" for="cart_item_product_stock">Số lượng</label>
+                                            <label class="form-label" for="quantityInput">Số lượng</label>
                                         </li>
                                         <li class="list-inline-item col-3">
                                             <input type="number" class="form-control" name="quantity" id="quantityInput" value=1 min=1 max="<?=$row['quantity']?>">
@@ -176,7 +101,7 @@ if ($product->num_rows > 0) {
                                 <div class="col-xl-4 col-md-6 col-sm-12">
                                     <input type="hidden" name="action" value="add"> 
                                     <input type="hidden" name="id" value="<?php echo $row['product_id']?>">
-                                    <button onclick="addCartItem(<?=$row['product_id']?>)" style="" class="w-100 btn btn-warning btn-lg  <?php if ($row["quantity"] <= 0) echo 'disabled'?>"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
+                                    <button type="button" onclick="addCartItem(<?=$row['product_id']?>)" class="w-100 btn btn-warning btn-lg  <?php if ($row["quantity"] <= 0) echo 'disabled'?>"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
                                 </div>
                             </div>
                         </form>
@@ -246,7 +171,6 @@ if ($product->num_rows > 0) {
                     <button type="button"  class="btn btn-primary <?php if(!isset($_SESSION['email_user'])) echo 'disabled' ?>" data-bs-toggle="modal" data-bs-target="#postReview" style="background-color: #C7C8C9; color: black; border: 0; transition: background-color 0.3s ease, color 0.3s ease;" 
     onmouseover="this.style.backgroundColor='#A0A1A2'; this.style.color='white';" 
     onmouseout="this.style.backgroundColor='#C7C8C9'; this.style.color='black';"><i class="fa-sharp fa-solid fa-circle-star"></i> Viết đánh giá</button>
-                    <!-- <button class="ms-1 btn btn-outline-primary">Xem đánh giá <i class="fa-light fa-circle-play"></i></button> -->
                     <div class="mt-1">
                         <i><small>(<i class="fa-regular fa-asterisk"></i>) Vui lòng đăng nhập để đánh giá sản phẩm này</small></i>
                     </div>
@@ -266,7 +190,6 @@ if ($product->num_rows > 0) {
         <div class="row">
             <div class="ps-3 pe-3 pt-3 pb-3">
                 <button type="button" class="btn btn-primary <?php if(!isset($_SESSION['email_user'])) echo 'disabled' ?>" data-bs-toggle="modal" data-bs-target="#postReview"><i class="fa-sharp fa-solid fa-circle-star"></i> Viết đánh giá</button>
-                <!-- <button class="ms-1 btn btn-outline-primary">Xem đánh giá <i class="fa-light fa-circle-play"></i></button> -->
             </div>
         </div>
         <div class="row">
@@ -280,7 +203,7 @@ if ($product->num_rows > 0) {
 ?>
 <div class="modal fade" id="postReview" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <form action="<?=$rootPath?>/customer/reviews/add.php" method="post">
+    <form id="reviewForm">
         <input type="hidden" name="userId" value="<?=$userId?>">
         <input type="hidden" name="productId" value="<?=$productId?>">
         <div class="modal-content">
@@ -346,6 +269,30 @@ if ($product->num_rows > 0) {
                 }
             }
         )
+    });
+
+    // Xử lý sự kiện khi bấm nút Submit form đánh giá
+    $('#reviewForm').on('submit', function(e) {
+        e.preventDefault(); 
+
+        $.ajax({
+            url: "<?=$rootPath?>/customer/reviews/add.php", 
+            type: "POST",
+            data: $(this).serialize() + "&review=1", 
+            success: function (response) {
+                // Đóng Modal 
+                $('#postReview').modal('hide');
+                
+                // Xóa trắng form
+                $('#reviewForm')[0].reset();
+                
+                // Thêm dòng này: Tự động load lại trang hiện tại để hiện đánh giá mới
+                window.location.reload(); 
+            },
+            error: function () {
+                alert("Có lỗi xảy ra khi gửi đánh giá.");
+            }
+        });
     });
 </script>
 <script src="./public/javascripts/liveSearch.js"></script>
