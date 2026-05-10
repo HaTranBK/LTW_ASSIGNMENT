@@ -74,8 +74,8 @@
                                             
                                             // Cột Action (Chứa nút Sửa và Xóa)
                                             echo "<td>
-                                                <a href='edit.php?id=" . $row['review_id'] . "' class='text-primary me-3' title='Edit'>
-                                                    <i class='fa-solid fa-pen-to-square'></i>
+                                                <a href='view.php?id=" . $row['review_id'] . "' class='text-success me-3' title='Xem trực tiếp' target='_blank'>
+                                                    <i class='fa-solid fa-eye'></i>
                                                 </a>
                                                 <a href='delete.php?id=" . $row['review_id'] . "' class='text-danger' title='Delete' onclick=\"return confirm('Bạn có chắc chắn muốn xóa đánh giá này không?');\">
                                                     <i class='ti-trash'></i>

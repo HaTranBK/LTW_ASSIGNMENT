@@ -33,6 +33,15 @@ if ($product->num_rows > 0) {
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="./public/css/base.css">
+    <style>
+        /* Hiệu ứng highlight cho comment khi có ID trên URL */
+        div[id^="review-"]:target .media-body {
+            background-color: #fff3cd !important; /* Màu vàng nhạt */
+            padding: 15px;
+            border-radius: 5px;
+            transition: background-color 0.5s ease;
+        }
+    </style>
 </head>
 <body>
 <section class="bg-light">
@@ -129,7 +138,8 @@ if ($product->num_rows > 0) {
         $userId = $user['user_id'];
     }
 
-    $sqlReviews = "SELECT user.user_id, name, title, content, review.updated_at FROM review, user WHERE user.user_id = review.user_id AND review.product_id = '$productId'";
+    // THAY ĐỔI 1: Thêm review.review_id vào câu lệnh SELECT
+    $sqlReviews = "SELECT review.review_id, user.user_id, name, title, content, review.updated_at FROM review, user WHERE user.user_id = review.user_id AND review.product_id = '$productId'";
     $review = $conn->query($sqlReviews);
     if ($review->num_rows>0) {
 ?>
@@ -143,8 +153,8 @@ if ($product->num_rows > 0) {
             <?php 
             while($row = $review->fetch_assoc()) {
             ?>
-                <!-- Review -->
-                <div class="ps-3 pe-3 pt-2">
+                <!-- THAY ĐỔI 2: Gắn id="review-..." vào thẻ div bao bọc comment -->
+                <div class="ps-3 pe-3 pt-2" id="review-<?=$row['review_id']?>">
                     <div class="media-body border-bottom border-secondary">
                         <span class="h4"><?=$row['name']?></span> 
                         <?php 
@@ -177,7 +187,6 @@ if ($product->num_rows > 0) {
                 </div>
             </div>
         </div>
-
 <?php
     } else {
 ?>
@@ -230,8 +239,8 @@ if ($product->num_rows > 0) {
   </div>
 </div>
 <?php
-    $conn->close();
     require './includes/footer.php';
+    $conn->close();
 ?>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

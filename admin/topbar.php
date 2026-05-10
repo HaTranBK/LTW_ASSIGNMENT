@@ -27,7 +27,6 @@
                             </div>
                             <div class="dropdown-menu dropdown-menu-end mt-2" style="border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                                 <a class="dropdown-item" href="/LTW_ASSIGNMENT/admin/profile.php"><i class="fa-solid fa-user" style="margin-right: 8px;"></i> My Profile</a>
-                                <a class="dropdown-item" href="/LTW_ASSIGNMENT/admin/account_settings.php"><i class="fa-solid fa-gear" style="margin-right: 8px;"></i> Account Settings</a>
                                 <a class="dropdown-item" href="/LTW_ASSIGNMENT/admin/reset-pass.php"><i class="fa-solid fa-lock" style="margin-right: 8px;"></i> Reset Password</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/LTW_ASSIGNMENT/admin/logout.php"><i class="fa-solid fa-right-from-bracket" style="margin-right: 8px;"></i> Log Out</a>
