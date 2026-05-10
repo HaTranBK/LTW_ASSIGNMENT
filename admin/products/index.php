@@ -19,7 +19,10 @@ require_once '../../database/DB.php';
 </head>
 <body>
 <?php
-    require '../includes/header.php';
+    
+require '../header.php';
+require '../topbar.php';
+require '../sidebar.php';
    
 ?>
 
@@ -170,7 +173,7 @@ require_once '../../database/DB.php';
 
 
 <?php
-    require '../includes/footer.php';
+    require '../footer.php';
 ?>
 
 <!-- JavaScript Bundle with Popper -->
