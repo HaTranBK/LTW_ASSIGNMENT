@@ -25,7 +25,7 @@
 </head>
 <body>
 <?php
-    require '../includes/header.php';
+    require '../header.php';
     
 ?>
 
@@ -95,7 +95,7 @@
 </div>
 
 <?php
-    require '../includes/footer.php';
+    require './footer.php';
 ?>
 
 <script>

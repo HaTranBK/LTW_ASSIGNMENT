@@ -56,13 +56,36 @@ if (isset($_POST['login_ad'])) {
   <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.2/css/all.css">
   <link rel="stylesheet" href="../public/css/showPassword.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  
+  <style>
+    /* CSS cho Header Logo */
+    .header-container {
+        display: flex;
+        justify-content: center; /* Đẩy logo ra chính giữa */
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #fff;
+        border-bottom: 1px solid #ccc;
+        height: 115px;
+    }
+
+    .logo img {
+        height: 70px;
+    }
+  </style>
 </head>
 
 <body>
-  <?php 
-    // Lưu ý: Đảm bảo tên file header của bạn đúng nhé, lúc nãy là header.php, ở đây là header1.php
-    require './includes/header.php'; 
-  ?>
+  
+  <!-- PHẦN HEADER LOGO MỚI GỘP VÀO -->
+  <div class="header-container">
+      <div class="logo">
+          <a href="/LTW_ASSIGNMENT/index.php">
+              <img src="https://shop-olivia.com/cdn/shop/files/thumbnail_OliviaLogo-BLK_400x.png?v=1689365415" alt="Olivia">
+          </a>
+      </div>
+  </div>
+  <!-- KẾT THÚC HEADER -->
 
   <div class="row d-flex justify-content-center align-items-center h-100">
     <div class="col-lg-12 col-xl-11">

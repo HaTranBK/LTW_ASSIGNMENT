@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-$rootPath = '/ltw/admin/';
+$rootPath = '/LTW_ASSIGNMENT/admin/';
 if (!isset($_SESSION["email_ad"])) {
     header('location: ../login.php');
 }
@@ -23,7 +23,7 @@ if (isset($_POST['update_settings'])) {
     if (isset($_FILES['logo']) && $_FILES['logo']['error'] == 0) {
         $logo_name = time() . '_' . $_FILES['logo']['name'];
         if (move_uploaded_file($_FILES['logo']['tmp_name'], '../../images/' . $logo_name)) {
-            $logo = '/ltw/images/' . $logo_name;
+            $logo = '/LTW_ASSIGNMENT/images/' . $logo_name;
         }
     }
 
@@ -56,7 +56,7 @@ if (isset($_POST['update_settings'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<?php require '../includes/header.php'; ?>
+<?php require '../header.php'; ?>
 
 <div class="container mt-5 mb-5">
     <div class="row justify-content-center">
@@ -136,7 +136,7 @@ if (isset($_POST['update_settings'])) {
     </div>
 </div>
 
-<?php require '../includes/footer.php'; ?>
+<?php require '../footer.php'; ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
