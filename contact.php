@@ -37,6 +37,8 @@ require_once './database/DB.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="./public/css/base.css">
     <link rel="stylesheet" href="./public/css/contact.css">
+    <!-- SweetAlert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 <?php
@@ -54,21 +56,20 @@ require_once './database/DB.php';
 <!-- start contact page -->
 <div class="container py-2">
     <div class="row py-2">
-        <p class="text-center text-danger"><?php echo $status?></p>
         <form class="col-md-9 m-auto" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" role="form">
             <div class="row">
                 <div class="form-group col-md-6 mb-3">
                     <label for="contactName">Tên của bạn</label>
-                    <input type="text" class="form-control mt-1" id="contactName" name="name" placeholder="Enter your name">
+                    <input type="text" class="form-control mt-1" id="contactName" name="name" placeholder="Enter your name" required>
                 </div>
                 <div class="form-group col-md-6 mb-3">
                     <label for="contactEmail">Email</label>
-                    <input type="email" class="form-control mt-1" id="contactEmail" name="email" placeholder=" Enter your email">
+                    <input type="email" class="form-control mt-1" id="contactEmail" name="email" placeholder=" Enter your email" required>
                 </div>
             </div>
             <div class="mb-3">
                 <label for="contactMessage">Tin nhắn</label>
-                <textarea class="form-control mt-1" id="contactMessage" name="message" placeholder="Message" rows="8"></textarea>
+                <textarea class="form-control mt-1" id="contactMessage" name="message" placeholder="Message" rows="8" required></textarea>
             </div>
             <div class="row">
                 <div class="col text-end mt-2">
@@ -90,6 +91,36 @@ require_once './database/DB.php';
     require './includes/footer.php';
     $conn->close();
 ?>
+
+<!-- Toast Notification Logic -->
+<?php if ($status != ""): ?>
+<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    <?php if (strpos($status, 'Cảm ơn') !== false): ?>
+        Toast.fire({
+            icon: 'success',
+            title: 'Gửi liên hệ thành công!'
+        })
+    <?php else: ?>
+        Toast.fire({
+            icon: 'error',
+            title: '<?php echo $status; ?>'
+        })
+    <?php endif; ?>
+</script>
+<?php endif; ?>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
