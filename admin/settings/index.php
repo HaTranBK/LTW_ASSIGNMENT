@@ -1,11 +1,8 @@
-<?php
-session_start();
-ob_start();
-$rootPath = '/LTW_ASSIGNMENT/admin/';
-if (!isset($_SESSION["email_ad"])) {
-    header('location: ../login.php');
-}
+<?php include '../header.php'; ?>
+<?php include '../sidebar.php'; ?>
+<?php include '../topbar.php'; ?>
 
+<?php
 require_once '../../database/DB.php';
 require_once '../../helper/settings.php';
 
@@ -39,28 +36,16 @@ if (isset($_POST['update_settings'])) {
             
     if ($conn->query($sql)) {
         $_SESSION['thongBao'] = "Cập nhật cài đặt thành công!";
-        header("location: index.php");
+        header("location: /LTW_ASSIGNMENT/index.php");
         exit();
     } else {
         $error = "Lỗi cập nhật: " . $conn->error;
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cài đặt hệ thống</title>
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.2/css/all.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<?php require '../header.php'; ?>
-
-<div class="container mt-5 mb-5">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
+<div class="main-content-inner" id="main-content">
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-11">
             <div class="card shadow">
                 <div class="card-header bg-dark text-white">
                     <h4 class="mb-0">Cài đặt thông tin trang web</h4>
@@ -123,7 +108,7 @@ if (isset($_POST['update_settings'])) {
 
                         <div class="text-center mt-4">
                             <button type="submit" name="update_settings" class="btn btn-primary px-5" 
-                                    style="background-color: #C7C8C9; color: black; border: none;"
+                                    style="background-color: #C7C8C9; color: black; border: none; font-weight: bold;"
                                     onmouseover="this.style.backgroundColor='#A9AAAB'; this.style.color='white';"
                                     onmouseout="this.style.backgroundColor='#C7C8C9'; this.style.color='black';">
                                 Lưu thay đổi
@@ -136,7 +121,7 @@ if (isset($_POST['update_settings'])) {
     </div>
 </div>
 
-<?php require '../footer.php'; ?>
+<?php include '../footer.php'; ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

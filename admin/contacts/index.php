@@ -1,112 +1,81 @@
+<?php include '../header.php'; ?>
+<?php include '../sidebar.php'; ?>
+<?php include '../topbar.php'; ?>
+
 <?php
-  session_start();
-  ob_start();
-  $rootPath = '/LTW_ASSIGNMENT/admin';
-  if (!isset($_SESSION["email_ad"])) {
-      header('location: ../login.php');
-  }
-
-  require_once '../../database/DB.php';
-
   $sqlShowContact = "SELECT * FROM contact";
   $contacts = $conn->query($sqlShowContact);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liên hệ</title>
-    <link rel="stylesheet"  href="https://site-assets.fontawesome.com/releases/v6.1.2/css/all.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-</head>
-<body>
-<?php
-    require '../header.php';
-    
-?>
+<div class="main-content-inner" id="main-content">
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4 class="header-title mb-3">Quản lý liên hệ</h4>
 
-<div class="container-fluid">
-    <?php if (isset($_SESSION['thongBao'])): ?>
-        <div class="alert alert-success mt-3">
-            <?php 
-            echo $_SESSION['thongBao']; 
-            unset($_SESSION['thongBao']);
-            ?>
-        </div>
-    <?php endif; ?>
-    <table class="table table-striped">
-      <thead>
-        <tr class="table-primary text-center">
-          <th scope="col" style="background-color:#C7C8C9">STT</th>
-          <th scope="col" style="background-color:#C7C8C9">Người gửi</th>
-          <th scope="col" style="background-color:#C7C8C9">Email</th>
-          <th scope="col" style="background-color:#C7C8C9">Tin nhắn</th>
-          <th scope="col" style="background-color:#C7C8C9">Ngày gửi</th>
-          <th scope="col" style="background-color:#C7C8C9">Trạng thái</th>
-          <th scope="col" style="background-color:#C7C8C9"></th>
-        </tr>
-      </thead>
-      <?php
-        if ($contacts->num_rows>0) {
-          $count = 1;
-          while ($row = $contacts->fetch_assoc()) {
-      ?>
-      <tbody>
-        <tr>
-          <th class='align-middle' scope="row"><?php echo $count?></th>
-          <td class='align-middle'><?php echo $row["username"]?></td>
-          <td class='align-middle' id="test"><?php echo $row["email"]?></td>
-          <td class='align-middle'><?php echo $row["message"]?></td>
-          <td class='align-middle'><?php echo $row["created_at"]?></td>
-          <td class='align-middle'>
-            <?php
-                if ($row["status"] == 0) {
-                  echo "Chưa phản hồi";
-                } else {
-                  echo "Đã phản hồi";
-                }
-            ?>
-         </td>
-          <td class='align-middle text-center'>
-            <?php if ($row["status"] == 0): ?>
-              <a href="action.php?action=mark_replied&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-success m-1" title="Đánh dấu đã phản hồi">
-                <i class="fa-solid fa-check"></i>
-              </a>
-              <button type='button' class='btn btn-sm btn-primary m-1' onclick="sendMail('<?php echo $row['email']; ?>')">
-                <i class='fa-regular fa-envelope'></i>
-              </button>
+            <?php if (isset($_SESSION['thongBao'])): ?>
+                <div class="alert alert-success">
+                    <?php 
+                    echo $_SESSION['thongBao']; 
+                    unset($_SESSION['thongBao']);
+                    ?>
+                </div>
             <?php endif; ?>
-            <a href="action.php?action=delete&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger m-1" onclick="return confirm('Bạn có chắc chắn muốn xóa liên hệ này?')" title="Xóa">
-              <i class="fa-solid fa-trash"></i>
-            </a>
-          </td>
-        </tr>
-      </tbody>
-      <?php
-              $count++;
-          };
-        }
-      ?>
-    </table>
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle text-center" style="min-width: 900px;">
+                    <thead class="table-light">
+                        <tr>
+                            <th>STT</th>
+                            <th>Người gửi</th>
+                            <th>Email</th>
+                            <th style="text-align: left;">Tin nhắn</th>
+                            <th>Ngày gửi</th>
+                            <th>Trạng thái</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                        if ($contacts->num_rows > 0) {
+                            $count = 1;
+                            while ($row = $contacts->fetch_assoc()) {
+                    ?>
+                        <tr>
+                            <th scope="row"><?php echo $count; ?></th>
+                            <td><?php echo htmlspecialchars($row["username"]); ?></td>
+                            <td><?php echo htmlspecialchars($row["email"]); ?></td>
+                            <td style="text-align: left;"><?php echo htmlspecialchars($row["message"]); ?></td>
+                            <td><?php echo date('H:i - d/m/Y', strtotime($row["created_at"])); ?></td>
+                            <td>
+                                <?php if ($row["status"] == 0): ?>
+                                    <span style="color: #f39c12; font-weight: 600;">Chưa phản hồi</span>
+                                <?php else: ?>
+                                    <span style="color: #27ae60; font-weight: 600;">Đã phản hồi</span>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <?php if ($row["status"] == 0): ?>
+                                    <a href="action.php?action=mark_replied&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-success m-1" title="Đánh dấu đã phản hồi">
+                                        <i class="fa-solid fa-check"></i>
+                                    </a>
+                                <?php endif; ?>
+                                <a href="action.php?action=delete&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger m-1" onclick="return confirm('Bạn có chắc chắn muốn xóa liên hệ này?')" title="Xóa">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php
+                                $count++;
+                            }
+                        } else {
+                            echo "<tr><td colspan='7' style='text-align: center; padding: 20px;'>Chưa có liên hệ nào!</td></tr>";
+                        }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
-<?php
-    require './footer.php';
-?>
-
-<script>
-    function sendMail(email) {
-    var link = "mailto:" + email
-             + "?subject=" + encodeURIComponent("Phản hồi liên hệ")
-             + "&body=" + encodeURIComponent("Chào bạn,\n\n")
-    ;
-    window.location.href = link;
-}
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-</body>
-</html>
+<?php include '../footer.php'; ?>

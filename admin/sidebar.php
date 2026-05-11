@@ -6,6 +6,8 @@ $current_uri = $_SERVER['REQUEST_URI'];
 $is_post = strpos($current_uri, '/new_posts/') !== false;
 $is_dashboard = strpos($current_uri, '/index2.php') !== false && !$is_post;
 $is_comments = strpos($current_uri, '/comments/') !== false;
+$is_contacts = strpos($current_uri, '/contacts/') !== false;
+$is_settings = strpos($current_uri, '/settings/') !== false;
 // 3. Khai báo đoạn CSS làm nổi bật (màu tím)
 $active_style = 'style="background-color: purple; color: white; border-radius: 5px;"';
 ?>
@@ -55,9 +57,14 @@ $active_style = 'style="background-color: purple; color: white; border-radius: 5
                         <a href="javascript:void(0)" aria-expanded="true"><i class="fa-solid fa-cart-shopping"></i> <span>Orders</span></a>
                     </li>
                     
-                    <!-- Nút Contact (Chưa làm, để trống) -->
-                    <li>
-                        <a href="javascript:void(0)" aria-expanded="true"><i class="fa-solid fa-phone"></i> <span>Contact</span></a>
+                    <!-- Nút Contact -->
+                    <li class="<?php echo $is_contacts ? 'active' : ''; ?>">
+                        <a href="<?php echo $rootPath; ?>/contacts/index.php" aria-expanded="true" <?php echo $is_contacts ? $active_style : ''; ?>><i class="fa-solid fa-phone"></i> <span>Contact</span></a>
+                    </li>
+                    
+                    <!-- Nút Settings -->
+                    <li class="<?php echo $is_settings ? 'active' : ''; ?>">
+                        <a href="<?php echo $rootPath; ?>/settings/index.php" aria-expanded="true" <?php echo $is_settings ? $active_style : ''; ?>><i class="fa-solid fa-gear"></i> <span>Settings</span></a>
                     </li>
                 </ul>
             </nav>

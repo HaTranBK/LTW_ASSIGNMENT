@@ -6,7 +6,7 @@ ob_start();
 $rootPath = '/LTW_ASSIGNMENT/admin';
 if (!isset($_SESSION["email_ad"])) {
     // Dùng đường dẫn tuyệt đối bắt đầu từ tên thư mục gốc của bạn
-    header('location: /LTW_ASSIGNMENT/login.php');
+    header('location: /LTW_ASSIGNMENT/admin/login.php');
     exit();
 }
 // Dùng __DIR__ để neo chính xác thư mục chứa file header.php

@@ -284,7 +284,7 @@ $siteSettings = getSettings();
 
     <!-- Centered logo -->
     <div class="logo">
-        <a href="/LTW_ASSIGNMENT/index.php"><img src="https://shop-olivia.com/cdn/shop/files/thumbnail_OliviaLogo-BLK_400x.png?v=1689365415" alt="Olivia"></a>
+        <a href="/LTW_ASSIGNMENT/index.php"><img src="<?php echo $siteSettings['logo']; ?>" alt="Olivia"></a>
     </div>
 
     <!-- User links on the right -->
