@@ -3,9 +3,6 @@
   ob_start();
   $rootPath = '/LTW_ASSIGNMENT';
   require_once '../database/DB.php';
-
-  $sql = "SELECT email, password FROM user WHERE active = 1";
-  $ketqua = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -34,50 +31,31 @@ $password = '';
 $tb = '';
 
 if (isset($_POST['login_user'])) {
-    $is_validated = true;
-    $errorEmail = $errorPassword = "";
-    $email = $_POST['email'];
+    $email = trim($_POST['email']);
     $password = $_POST['password'];
 
     if ($email == "" || $password == "") {
-      $is_validated = false;
-      $tb = "Vui lòng nhập các ô còn thiếu";
-    }
-    if (checkEmailExist($email) == ""){
-      $is_validated = false;
-      $errorEmail = "Email không tồn tại";
-    }
-    
+      $tb = "Vui lòng nhập đầy đủ Email và Mật khẩu!";
+    } else {
+        $email_safe = mysqli_real_escape_string($conn, $email);
+        $sql = "SELECT email, password FROM user WHERE email = '$email_safe' AND active = 1 LIMIT 1";
+        $ketqua = $conn->query($sql);
 
-    if ($ketqua->num_rows == 0) {
-      $tb = 'Tài khoản không tồn tại hoặc chưa xác thực!';
-      $is_validated = false;
-    }
-    if ($ketqua->num_rows > 0) {
-      while ($row = $ketqua->fetch_assoc()) {
-        if ($row["email"] == $email && password_verify($password, $row["password"])) {
-          $_SESSION["email_user"] = $email;
-          if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) 
-              header('location: check_out.php');
-            else
-              header('location: my_account.php');
+        if ($ketqua && $ketqua->num_rows > 0) {
+            $row = $ketqua->fetch_assoc();
+            if (password_verify($password, $row["password"])) {
+                $_SESSION["email_user"] = $email;
+                if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) 
+                    header('location: check_out.php');
+                else
+                    header('location: my_account.php');
+                exit();
+            } else {
+                $tb = 'Mật khẩu không chính xác!';
+            }
         } else {
-          $is_validated = false;
-          $tb = 'Sai email hoặc mật khẩu';
+            $tb = 'Email không tồn tại hoặc tài khoản chưa được kích hoạt!';
         }
-      }
-    }
-
-    if ($email == "" || $password == "") {
-      $is_validated = false;
-      $tb = "Vui lòng nhập các ô còn thiếu";
-    }
-    if ($is_validated) {
-      $_SESSION["email_user"] = $email;
-      if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) 
-        header('location: check_out.php');
-      else
-        header('location: my_account.php');
     }
 }
 ?>
